@@ -837,7 +837,7 @@ function renderAdmTbl(overrideSess){
   var tb=$('atb');
   if(!ss.length){tb.innerHTML='<tr><td colspan="5" style="text-align:center;padding:2rem;color:rgba(255,255,255,.25);font-style:italic">אין שיעורים</td></tr>';return;}
   tb.innerHTML=ss.map(function(s){
-    return '<tr><td>'+s.day+'</td><td style="font-family:'Karantina',cursive;font-size:1.1rem">'+s.time+'</td><td><span class="atag">'+s.name+'</span></td><td style="font-size:.82rem;color:rgba(255,255,255,.55)">'+s.loc+'</td><td></td></tr>';
+    return '<tr><td>'+s.day+'</td><td style="font-family:Karantina,cursive;font-size:1.1rem">'+s.time+'</td><td><span class="atag">'+s.name+'</span></td><td style="font-size:.82rem;color:rgba(255,255,255,.55)">'+s.loc+'</td><td></td></tr>';
   }).join('');
 }
 
