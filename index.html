@@ -968,6 +968,33 @@ function setPhase(ph){
   applyBlobs(ph);
 }
 
+/* scroll progress bar */
+var prog=document.getElementById('prog');
+function updProg(p){ if(prog) prog.style.transform='scaleX('+p+')'; }
+
+/* hero next-class chip */
+function updateHeroNext(sess){
+  var wrap=document.getElementById('hero-next-wrap'), txt=document.getElementById('hero-next-text');
+  if(!wrap||!sess||!sess.length){return;}
+  var DAYS_O=['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
+  var now=new Date(), todayIdx=now.getDay(), nowMin=now.getHours()*60+now.getMinutes();
+  var best=null, bestMins=Infinity;
+  sess.forEach(function(s){
+    var di=DAYS_O.indexOf(s.day); if(di<0)return;
+    var parts=(s.time||'00:00').split(':');
+    var sm=parseInt(parts[0]||0)*60+parseInt(parts[1]||0);
+    var daysUntil=(di-todayIdx+7)%7;
+    if(daysUntil===0&&sm<=nowMin) daysUntil=7;
+    var totalMins=daysUntil*1440+sm-nowMin;
+    if(totalMins<bestMins){bestMins=totalMins;best=s;}
+  });
+  if(!best)return;
+  var h=Math.floor(bestMins/60), d=Math.floor(h/24);
+  var countdown= d>1?'עוד '+d+' ימים': d===1?'מחר': h>0?'עוד '+h+' שעות':'בקרוב';
+  txt.textContent=best.name+' · '+best.day+' '+best.time+' · '+countdown;
+  wrap.style.display='flex';
+}
+
 /* scroll */
 function onScroll(){
   var sy=window.scrollY;
@@ -1123,32 +1150,7 @@ function handleEmailSub(e){
   },{passive:true});
 })();
 
-/* ── Scroll progress bar ── */
-var prog=document.getElementById('prog');
-function updProg(p){ if(prog) prog.style.transform='scaleX('+p+')'; }
-
-/* ── Hero next-class chip ── */
-function updateHeroNext(sess){
-  var wrap=document.getElementById('hero-next-wrap'), txt=document.getElementById('hero-next-text');
-  if(!wrap||!sess||!sess.length){return;}
-  var DAYS_O=['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
-  var now=new Date(), todayIdx=now.getDay(), nowMin=now.getHours()*60+now.getMinutes();
-  var best=null, bestMins=Infinity;
-  sess.forEach(function(s){
-    var di=DAYS_O.indexOf(s.day); if(di<0)return;
-    var parts=(s.time||'00:00').split(':');
-    var sm=parseInt(parts[0]||0)*60+parseInt(parts[1]||0);
-    var daysUntil=(di-todayIdx+7)%7;
-    if(daysUntil===0&&sm<=nowMin) daysUntil=7;
-    var totalMins=daysUntil*1440+sm-nowMin;
-    if(totalMins<bestMins){bestMins=totalMins;best=s;}
-  });
-  if(!best)return;
-  var h=Math.floor(bestMins/60), d=Math.floor(h/24);
-  var countdown= d>1?'עוד '+d+' ימים': d===1?'מחר': h>0?'עוד '+h+' שעות':'בקרוב';
-  txt.textContent=best.name+' · '+best.day+' '+best.time+' · '+countdown;
-  wrap.style.display='flex';
-}
+/* updProg and updateHeroNext defined in main IIFE above */
 
 /* ── Gallery: wire ip1/ip2 ── */
 (function(){
