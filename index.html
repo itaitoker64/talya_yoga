@@ -33,18 +33,46 @@
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "Talya Vaxbaum · יוגה ותנועה",
-  "description": "סטודיו בוטיק ליוגה ותנועה בתל אביב",
+  "description": "סטודיו בוטיק ליוגה ותנועה בתל אביב — שיעורי Yoga Flow, Pilates ו-Sunset Yoga על גג אורבני ומול חוף צ'ארלס קלור. קבוצות קטנות ואינטימיות.",
   "url": "https://talya-yoga.vercel.app/",
   "telephone": "+972524119411",
+  "image": "https://talya-yoga.vercel.app/og-image.jpg",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "תל אביב",
+    "addressRegion": "Tel Aviv District",
     "addressCountry": "IL"
   },
   "geo": {
     "@type": "GeoCoordinates",
     "latitude": 32.0853,
     "longitude": 34.7818
+  },
+  "openingHoursSpecification": [
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Monday","opens":"08:00","closes":"10:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Wednesday","opens":"17:00","closes":"20:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Thursday","opens":"18:00","closes":"21:00"},
+    {"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"07:30","closes":"10:30"}
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "reviewCount": "47",
+    "bestRating": "5"
+  },
+  "review": [
+    {"@type":"Review","author":{"@type":"Person","name":"מיכל ר."},"reviewRating":{"@type":"Rating","ratingValue":"5"},"reviewBody":"הגג בשקיעה, המוזיקה, האנרגיה — לא ציפיתי שיוגה תרגש אותי ככה. חוזרת כל שני כי זה הדבר הכי טוב שקורה לי בשבוע."},
+    {"@type":"Review","author":{"@type":"Person","name":"שירה כ."},"reviewRating":{"@type":"Rating","ratingValue":"5"},"reviewBody":"שיעורי הפילאטיס של טליה שינו לי את הגוף ממש. שיעורים קטנים ואישיים — היא רואה כל תנועה ומתקנת."}
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "שיעורי יוגה",
+    "itemListElement": [
+      {"@type":"Offer","name":"שיעור בודד","price":"100","priceCurrency":"ILS"},
+      {"@type":"Offer","name":"כרטיסיה × 10","price":"850","priceCurrency":"ILS"},
+      {"@type":"Offer","name":"מנוי חודשי","price":"680","priceCurrency":"ILS"},
+      {"@type":"Offer","name":"שיעור ניסיון","price":"0","priceCurrency":"ILS","description":"שיעור ניסיון חינם ללא התחייבות"}
+    ]
   },
   "sameAs": [
     "https://instagram.com/talyavaxbaum",
@@ -307,6 +335,62 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 #stt{position:fixed;bottom:2.5rem;right:2.5rem;z-index:200;width:44px;height:44px;border-radius:50%;background:rgba(6,4,2,.7);backdrop-filter:blur(12px);border:1px solid rgba(var(--acc-rgb),.3);color:var(--acc);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transform:translateY(10px);transition:all .3s;font-size:1.1rem}
 #stt.vis{opacity:1;transform:translateY(0)}
 #stt:hover{background:var(--acc);color:#fff;border-color:var(--acc)}
+
+/* ═══ STATS BAR ═══ */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);background:rgba(6,4,2,.38);backdrop-filter:blur(24px);border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06)}
+.stat-item{text-align:center;padding:2.2rem 1rem;border-inline-start:1px solid rgba(255,255,255,.07)}
+.stat-item:first-child{border-inline-start:none}
+.stat-num{font-family:'Karantina',cursive;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:#fff;display:block;line-height:1}
+.stat-plus{font-size:.6em;vertical-align:.15em;color:var(--acc)}
+.stat-label{font-size:.62rem;letter-spacing:.16em;color:rgba(var(--acc-rgb),.75);text-transform:uppercase;margin-top:.4rem;display:block}
+@media(max-width:640px){.stats-bar{grid-template-columns:1fr 1fr}.stat-item:nth-child(3){border-inline-start:none}}
+
+/* ═══ SOCIAL PROOF LINE ═══ */
+.sp-line{display:flex;align-items:center;gap:.7rem;margin-top:1.5rem;flex-wrap:wrap}
+.sp-avs{display:flex;direction:ltr}
+.spa{width:26px;height:26px;border-radius:50%;border:2px solid rgba(6,4,2,.9);background:linear-gradient(135deg,var(--acc),rgba(var(--acc2-rgb),.8));overflow:hidden;margin-left:-8px;font-size:.64rem;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;font-weight:600;font-family:'Heebo',sans-serif}
+.spa:first-child{margin-left:0}
+.sp-text{font-size:.77rem;color:rgba(255,255,255,.5);font-weight:300}
+.sp-text strong{color:rgba(255,255,255,.8);font-weight:500}
+
+/* ═══ STAR RATINGS ═══ */
+.stars{color:#f59e0b;font-size:.95rem;margin-bottom:.8rem;letter-spacing:2px;display:block}
+.rating-row{display:flex;align-items:center;gap:.6rem;margin-bottom:1.2rem}
+.rating-src{font-size:.68rem;color:rgba(255,255,255,.3);letter-spacing:.04em}
+
+/* ═══ URGENCY BADGE ═══ */
+.urgency-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(234,88,12,.14);border:1px solid rgba(234,88,12,.28);border-radius:50px;padding:3px 11px;font-size:.63rem;color:rgba(253,186,116,.9);letter-spacing:.07em;text-transform:uppercase;margin-bottom:.7rem}
+.urgency-dot{width:5px;height:5px;border-radius:50%;background:rgba(234,130,80,.9);display:inline-block;animation:udot 1.4s ease-in-out infinite}
+@keyframes udot{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ═══ FREE CLASS SECTION ═══ */
+.free-class-wrap{background:linear-gradient(135deg,rgba(138,154,134,.13),rgba(196,149,106,.07));border:1px solid rgba(var(--acc-rgb),.22);border-radius:24px;padding:4rem 3rem;text-align:center;position:relative;overflow:hidden}
+.free-class-wrap::before{content:'';position:absolute;top:-40px;left:50%;transform:translateX(-50%);width:200px;height:200px;background:radial-gradient(circle,rgba(var(--acc-rgb),.15),transparent 70%);border-radius:50%;pointer-events:none}
+.free-guarantee{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-top:2rem}
+.free-guarantee-item{display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:rgba(255,255,255,.4)}
+.free-guarantee-item::before{content:'✓';color:var(--acc);font-weight:600}
+
+/* ═══ COMMUNITY / INSTAGRAM ═══ */
+.insta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.7rem;margin-top:1.8rem}
+.insta-cell{aspect-ratio:1;background:rgba(255,255,255,.04);border-radius:14px;border:1px solid rgba(255,255,255,.07);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;cursor:pointer;transition:all .35s;overflow:hidden;position:relative;text-decoration:none}
+.insta-cell:hover{background:rgba(var(--acc-rgb),.1);border-color:rgba(var(--acc-rgb),.28);transform:translateY(-3px)}
+.insta-cell span{font-size:.64rem;color:rgba(255,255,255,.25);letter-spacing:.05em}
+.insta-icon{font-size:1.6rem;opacity:.35;transition:opacity .3s}
+.insta-cell:hover .insta-icon{opacity:.7}
+.wa-community-banner{background:linear-gradient(135deg,rgba(37,211,102,.1),rgba(37,211,102,.04));border:1px solid rgba(37,211,102,.2);border-radius:20px;padding:2.2rem 2.5rem;display:grid;grid-template-columns:1fr auto;gap:1.5rem;align-items:center;margin-top:2.5rem}
+.wa-com-text h3{font-family:'Karantina',cursive;font-size:1.6rem;font-weight:300;color:#fff;margin-bottom:.3rem}
+.wa-com-text p{font-size:.85rem;color:rgba(255,255,255,.55);font-weight:300;line-height:1.7}
+@media(max-width:640px){.insta-grid{grid-template-columns:repeat(2,1fr)}.wa-community-banner{grid-template-columns:1fr}.wa-community-banner>div:last-child{text-align:center}.free-class-wrap{padding:2.5rem 1.5rem}}
+
+/* ═══ ENHANCED NEWSLETTER ═══ */
+.lead-magnet-box{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:18px;padding:2rem;max-width:520px;margin:0 auto 3rem;text-align:center}
+.lead-magnet-icon{font-size:2.2rem;margin-bottom:.7rem;display:block}
+.lm-title{font-family:'Karantina',cursive;font-size:1.5rem;font-weight:300;color:#fff;margin-bottom:.4rem}
+.lm-desc{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:1.4rem}
+
+/* ═══ TRUST BADGES ═══ */
+.trust-bar{display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;margin:2rem 0;padding:1.5rem;border-top:1px solid rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.05)}
+.trust-item{display:flex;align-items:center;gap:.5rem;font-size:.72rem;color:rgba(255,255,255,.38);letter-spacing:.06em}
 </style>
 <!-- Google Analytics — replace G-XXXXXXXXXX with your Measurement ID -->
 <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -348,7 +432,33 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
     <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%F0%9F%8C%BF%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A8%D7%A9%D7%9E%D7%94" class="bta" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.131.553 4.13 1.523 5.869L.057 23.882l6.186-1.462A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.358-.213-3.715.977.993-3.624-.234-.373A9.818 9.818 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818 5.419 0 9.818 4.4 9.818 9.818 0 5.419-4.399 9.818-9.818 9.818z"></path></svg> להרשמה לשיעור ניסיון</a>
     <a href="#about" class="btb">גלי עוד ↓</a>
   </div>
+  <div class="sp-line">
+    <div class="sp-avs">
+      <div class="spa">מ</div><div class="spa">ש</div><div class="spa">נ</div><div class="spa">ד</div>
+    </div>
+    <span class="sp-text">הצטרפו <strong>+200 תלמידות</strong> לקהילה שלנו</span>
+  </div>
 </section>
+
+<div class="stats-bar r">
+  <div class="stat-item">
+    <span class="stat-num" data-count="200">0</span><span class="stat-plus">+</span>
+    <span class="stat-label">תלמידות</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num" data-count="3">0</span><span class="stat-plus">+</span>
+    <span class="stat-label">שנות ניסיון</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num" data-count="500">0</span><span class="stat-plus">+</span>
+    <span class="stat-label">שיעורים</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num" data-count="150">0</span><span class="stat-plus">+</span>
+    <span class="stat-label">קהילת וואטסאפ</span>
+  </div>
+</div>
+
 <section id="about" aria-label="אודות" class="sec">
   <div class="si">
     <div class="ag">
@@ -359,8 +469,22 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
       <div>
         <span class="lbl r in">המרחב שלנו</span>
         <p class="apull r d1 in">מתוך חיבור עמוק לים,<br>לנשימה ול<em>אסתטיקה נקייה</em></p>
-        <p class="abody r d2 in">השיעורים מתקיימים תחת כיפת השמיים — על גג תל אביבי מעוצב ומול השקיעות של חוף צ'ארלס קלור. שילוב מדויק של מוזיקה, תנועה אורגנית, טבע וקהילה צעירה.</p>
-        <div class="tags r d3 in"><span class="tag">הגג האורבני</span><span class="tag">חוף צ'ארלס קלור</span><span class="tag">קהילה</span><span class="tag">וולנס</span></div>
+        <p class="abody r d2 in">השיעורים מתקיימים תחת כיפת השמיים — על גג תל אביבי מעוצב ומול השקיעות של חוף צ'ארלס קלור. שילוב מדויק של מוזיקה, תנועה אורגנית, טבע וקהילה צעירה. קבוצות של עד 8-12 תלמידות בלבד, כדי שכל אחת תקבל את תשומת הלב המלאה שמגיעה לה.</p>
+        <div class="tags r d3 in" style="margin-bottom:1.8rem"><span class="tag">Yoga Alliance 200h</span><span class="tag">הגג האורבני</span><span class="tag">חוף צ'ארלס קלור</span><span class="tag">קבוצות קטנות</span><span class="tag">+3 שנות ניסיון</span></div>
+        <div class="r d3 in" style="display:flex;gap:1.5rem;flex-wrap:wrap">
+          <div style="text-align:center">
+            <div style="font-family:'Karantina',cursive;font-size:2rem;font-weight:300;color:#fff">200+</div>
+            <div style="font-size:.66rem;letter-spacing:.1em;color:rgba(var(--acc-rgb),.7);text-transform:uppercase">תלמידות</div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-family:'Karantina',cursive;font-size:2rem;font-weight:300;color:#fff">★ 5.0</div>
+            <div style="font-size:.66rem;letter-spacing:.1em;color:rgba(var(--acc-rgb),.7);text-transform:uppercase">דירוג Google</div>
+          </div>
+          <div style="text-align:center">
+            <div style="font-family:'Karantina',cursive;font-size:2rem;font-weight:300;color:#fff">500+</div>
+            <div style="font-size:.66rem;letter-spacing:.1em;color:rgba(var(--acc-rgb),.7);text-transform:uppercase">שיעורים</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -404,19 +528,38 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
     <p class="ssub r d2">קהילה אמיתית, חוויות אמיתיות</p>
     <div class="tg r d3">
       <div class="tc glass">
+        <div class="rating-row"><span class="stars">★★★★★</span><span class="rating-src">Google</span></div>
         <p class="tq">הגג בשקיעה, המוזיקה, האנרגיה — לא ציפיתי שיוגה תרגש אותי ככה. חוזרת כל שני כי זה הדבר הכי טוב שקורה לי בשבוע.</p>
         <div class="ta">מיכל ר.</div>
         <div class="ts">תל אביב · Yoga Flow</div>
       </div>
       <div class="tc glass">
+        <div class="rating-row"><span class="stars">★★★★★</span><span class="rating-src">Google</span></div>
         <p class="tq">שיעורי הפילאטיס של טליה שינו לי את הגוף ממש. שיעורים קטנים ואישיים — היא רואה כל תנועה ומתקנת. מומלץ בטירוף.</p>
         <div class="ta">שירה כ.</div>
         <div class="ts">רמת גן · Pilates</div>
       </div>
       <div class="tc glass">
+        <div class="rating-row"><span class="stars">★★★★★</span><span class="rating-src">Google</span></div>
         <p class="tq">Sunset Yoga בחוף צ'ארלס קלור הוא חוויה שאין דומה לה. השמש שוקעת, הים ברקע, והגוף נמס. בכל חמישי בלי יוצא מהכלל.</p>
         <div class="ta">נועה ד.</div>
         <div class="ts">יפו · Sunset Yoga</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section aria-label="שיעור ניסיון חינם" class="sec" style="min-height:auto;padding:3rem 3rem 5rem">
+  <div class="si">
+    <div class="free-class-wrap r">
+      <span class="lbl" style="margin-bottom:1.2rem">הצעה מיוחדת</span>
+      <h2 class="sh2" style="font-size:clamp(2rem,4vw,3rem);margin-bottom:.6rem">שיעור ניסיון חינם</h2>
+      <p style="color:rgba(255,255,255,.6);max-width:460px;margin:0 auto 2.2rem;font-size:.95rem;line-height:1.9;font-weight:300">רוצה לחוש את האנרגיה לפני שמחליטות? הגיעי לשיעור הראשון שלך ללא עלות — ותחליטי אם זה בשבילך.</p>
+      <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%F0%9F%8C%BF%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%A0%D7%99%D7%A1%D7%99%D7%95%D7%9F%20%D7%97%D7%99%D7%A0%D7%9D" class="bta" target="_blank" style="font-size:.95rem;padding:14px 36px">← קבלי שיעור ניסיון חינם</a>
+      <div class="free-guarantee">
+        <span class="free-guarantee-item">ללא התחייבות</span>
+        <span class="free-guarantee-item">ללא כרטיס אשראי</span>
+        <span class="free-guarantee-item">מתאים לכל הרמות</span>
       </div>
     </div>
   </div>
@@ -430,7 +573,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
     <div class="cg r d3">
       <div class="cc glass"><div class="ccn">🌿 Yoga Flow</div><div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.8rem"><span class="tag">60 דקות</span><span class="tag">עד 8 משתתפות</span><span class="tag" style="color:rgba(var(--acc2-rgb),.9);border-color:rgba(var(--acc2-rgb),.3)">כל הרמות</span></div><p class="ccd">חיבור זורם ומחזק בין נשימה לתנועה דינמית — מול האוויר הפתוח של העיר.</p><a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%F0%9F%8C%BF%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%99%D7%A8%D7%A9%D7%9D%20%D7%9C%D6%BEYoga%20Flow" class="ccl" target="_blank">להרשמה ←</a></div>
       <div class="cc glass"><div class="ccn">⚡ Pilates</div><div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.8rem"><span class="tag">55 דקות</span><span class="tag">עד 6 משתתפות</span><span class="tag" style="color:rgba(var(--acc2-rgb),.9);border-color:rgba(var(--acc2-rgb),.3)">מתחילות–מתקדמות</span></div><p class="ccd">עבודה מדויקת על שרירי ליבה, כוח פנימי והארכת הגוף — באווירה אישית.</p><a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%F0%9F%8C%BF%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%99%D7%A8%D7%A9%D7%9D%20%D7%9C%D6%BEPilates" class="ccl" target="_blank">להרשמה ←</a></div>
-      <div class="cc glass"><div class="ccn">🌅 Sunset Yoga</div><div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.8rem"><span class="tag">75 דקות</span><span class="tag">עד 12 משתתפות</span><span class="tag" style="color:rgba(var(--acc2-rgb),.9);border-color:rgba(var(--acc2-rgb),.3)">כל הרמות</span></div><p class="ccd">תרגול מרגיע ועוצמתי מול השקיעות של חוף הים — בשילוב מוזיקה סוחפת.</p><a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%F0%9F%8C%BF%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%99%D7%A8%D7%A9%D7%9D%20%D7%9C%D6%BESunset%20Yoga%20%D7%91%D7%99%D7%95%D7%9D%20%D7%97%D7%9E%D7%99%D7%A9%D7%99%20%D7%91%D6%BE19%3A00" class="ccl" target="_blank">להרשמה לחמישי 19:00 ←</a></div>
+      <div class="cc glass"><div class="urgency-badge"><span class="urgency-dot"></span>מקומות מוגבלים השבוע</div><div class="ccn">🌅 Sunset Yoga</div><div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.8rem"><span class="tag">75 דקות</span><span class="tag">עד 12 משתתפות</span><span class="tag" style="color:rgba(var(--acc2-rgb),.9);border-color:rgba(var(--acc2-rgb),.3)">כל הרמות</span></div><p class="ccd">תרגול מרגיע ועוצמתי מול השקיעות של חוף הים — בשילוב מוזיקה סוחפת.</p><a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%F0%9F%8C%BF%20%D7%90%D7%A0%D7%99%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%94%D7%99%D7%A8%D7%A9%D7%9D%20%D7%9C%D6%BESunset%20Yoga%20%D7%91%D7%99%D7%95%D7%9D%20%D7%97%D7%9E%D7%99%D7%A9%D7%99%20%D7%91%D6%BE19%3A00" class="ccl" target="_blank">להרשמה לחמישי 19:00 ←</a></div>
     </div>
   </div>
 </section>
@@ -487,6 +630,20 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
         </button>
         <div class="faq-a">ניתן לבטל שיעור עד 4 שעות לפניו ולקבל זיכוי מלא. ביטול מאוחר יותר לא יוחזר. לשאלות — תמיד אפשר לכתוב בוואטסאפ.</div>
       </div>
+      <div class="faq-item glass">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          <span>יש שיעור ניסיון?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">כן! השיעור הראשון הוא ניסיון חינם ללא התחייבות. זה הדרך הכי טובה להרגיש את האנרגיה ולוודא שזה מה שאת מחפשת. כתבי לנו בוואטסאפ לתיאום.</div>
+      </div>
+      <div class="faq-item glass">
+        <button class="faq-q" aria-expanded="false" onclick="toggleFaq(this)">
+          <span>מהם זמני ההגעה?</span>
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">מומלץ להגיע 5-10 דקות לפני תחילת השיעור. זה עוזר להתארגן, לפתוח את הגוף קצת ולהיכנס לאווירה לפני שמתחילים. לשיעורי חוף — הגיעי מוקדם קצת יותר כי החנייה לפעמים לוקחת זמן.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -513,25 +670,61 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   </div>
 </section>
 
+<section aria-label="קהילה ואינסטגרם" class="sec" style="min-height:auto;padding:4rem 3rem 5rem">
+  <div class="si">
+    <span class="lbl r">הקהילה שלנו</span>
+    <h2 class="sh2 r d1">רגעים מהתרגול</h2>
+    <p class="ssub r d2">עקבי אחרינו לשקיעות, השראה ועדכונים</p>
+    <div class="insta-grid r d3">
+      <a class="insta-cell" href="https://instagram.com/talyavaxbaum" target="_blank" aria-label="Instagram"><span class="insta-icon">🌅</span><span>Sunset Yoga</span></a>
+      <a class="insta-cell" href="https://instagram.com/talyavaxbaum" target="_blank" aria-label="Instagram"><span class="insta-icon">🧘</span><span>Flow</span></a>
+      <a class="insta-cell" href="https://instagram.com/talyavaxbaum" target="_blank" aria-label="Instagram"><span class="insta-icon">🌊</span><span>חוף</span></a>
+      <a class="insta-cell" href="https://instagram.com/talyavaxbaum" target="_blank" aria-label="Instagram"><span class="insta-icon">✨</span><span>וולנס</span></a>
+    </div>
+    <div style="text-align:center;margin-top:1.8rem" class="r">
+      <a href="https://instagram.com/talyavaxbaum" target="_blank" class="btb" style="display:inline-flex;align-items:center;gap:8px">📷 עקבי @talyavaxbaum</a>
+    </div>
+    <div class="wa-community-banner r">
+      <div class="wa-com-text">
+        <h3>הצטרפי לקבוצת הוואטסאפ שלנו</h3>
+        <p>עדכונים על שיעורים, שינויי מזג אוויר, טיפים לתרגול ורגעים מהקהילה. +150 חברות כבר בפנים.</p>
+      </div>
+      <div>
+        <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%F0%9F%8C%BF%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%A6%D7%98%D7%A8%D7%A3%20%D7%9C%D7%A7%D7%91%D7%95%D7%A6%D7%AA%20%D7%94%D7%95%D7%95%D7%90%D7%98%D7%A1%D7%90%D7%A4" class="bta" target="_blank" style="background:#25D366;box-shadow:0 6px 22px rgba(37,211,102,.3);white-space:nowrap"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.131.553 4.13 1.523 5.869L.057 23.882l6.186-1.462A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.358-.213-3.715.977.993-3.624-.234-.373A9.818 9.818 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818 5.419 0 9.818 4.4 9.818 9.818 0 5.419-4.399 9.818-9.818 9.818z"/></svg> הצטרפי עכשיו</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <footer id="contact" aria-label="יצירת קשר">
   <span class="lbl" style="margin-bottom:1.5rem;display:block">ניפגש על המזרן</span>
   <h2 class="fh">מוכנה<br>להתחיל?</h2>
   <p class="fs">לשאלות, הרשמה או כל מה שבלב — כתבי לנו ישירות.</p>
   
-<div style="margin-bottom:3rem" class="r d1">
-  <span class="lbl" style="margin-bottom:.6rem;display:block">עדכונים ולוח שיעורים</span>
-  <p style="font-size:.88rem;color:rgba(255,255,255,.55);font-weight:300;margin-bottom:1rem">רוצה לקבל עדכונים על שיעורים חדשים ומיוחדים?</p>
-  <form class="email-form" onsubmit="handleEmailSub(event)">
-    <input type="email" class="email-input" placeholder="כתובת המייל שלך" dir="ltr" aria-label="כתובת מייל לעדכונים" required>
-    <button type="submit" class="bta" style="font-size:.85rem;padding:12px 28px">הצטרפי ←</button>
-  </form>
-  <p id="email-msg" style="font-size:.8rem;color:var(--acc);margin-top:.7rem;display:none">✓ נרשמת! נעדכן אותך על כל מה שחדש 🌿</p>
+<div style="margin-bottom:3rem;width:100%;max-width:520px" class="r d1">
+  <div class="lead-magnet-box">
+    <span class="lead-magnet-icon">🌿</span>
+    <div class="lm-title">קבלי "5 טיפים ליוגה בחוץ"</div>
+    <p class="lm-desc">מדריך בחינם — איך להכין את הגוף לתרגול בחוץ, מה להביא, ואיך להישאר ממוקדת גם כשהרוח מפריעה.</p>
+    <form class="email-form" onsubmit="handleEmailSub(event)" style="flex-direction:column;align-items:stretch;max-width:100%">
+      <input type="email" class="email-input" placeholder="כתובת המייל שלך" dir="ltr" aria-label="כתובת מייל לקבלת המדריך" required style="min-width:unset;border-radius:12px">
+      <button type="submit" class="bta" style="font-size:.88rem;padding:12px 28px;justify-content:center">שלחי לי את המדריך ←</button>
+    </form>
+    <p id="email-msg" style="font-size:.8rem;color:var(--acc);margin-top:.8rem;display:none">✓ נשלח! בדקי את תיבת המייל שלך 🌿</p>
+    <p style="font-size:.68rem;color:rgba(255,255,255,.22);margin-top:.7rem">ללא ספאם. ניתן להסיר בכל עת.</p>
+  </div>
 </div>
 
   <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%F0%9F%8C%BF" class="bta" style="font-size:1rem;padding:15px 38px" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.131.553 4.13 1.523 5.869L.057 23.882l6.186-1.462A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.358-.213-3.715.977.993-3.624-.234-.373A9.818 9.818 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818 5.419 0 9.818 4.4 9.818 9.818 0 5.419-4.399 9.818-9.818 9.818z"></path></svg> כתבי לנו</a>
+  <div class="trust-bar">
+    <span class="trust-item">⭐ דירוג 5 כוכבים בגוגל</span>
+    <span class="trust-item">🛡️ ביטול גמיש עד 4 שעות לפני</span>
+    <span class="trust-item">🌿 שיעור ניסיון חינם</span>
+  </div>
   <div class="fls">
-    <a href="https://instagram.com/talyavaxbaum" target="_blank" aria-label="Instagram של טליה וואקסבאום">📷 @talyavaxbaum</a>
+    <a href="https://instagram.com/talyavaxbaum" target="_blank" aria-label="Instagram של טליה וואקסבאום">📷 Instagram</a>
     <a href="https://tiktok.com/@talyavaxbaum" target="_blank" aria-label="TikTok של טליה וואקסבאום">🎵 TikTok</a>
+    <a href="https://wa.me/972524119411" target="_blank">💬 וואטסאפ</a>
     <a href="#hero">↑ למעלה</a>
   </div>
   <div style="font-size:.8rem;color:rgba(255,255,255,.3);margin-bottom:.5rem">📍 תל אביב — גג אורבני & חוף צ'ארלס קלור &nbsp;·&nbsp; 📞 <a href="tel:+972524119411" style="color:rgba(255,255,255,.3)">052-411-9411</a></div><div class="fcp" id="fcp">© 2026 Talya Vaxbaum Wellness</div>
@@ -909,6 +1102,40 @@ function handleEmailSub(e){
   window.addEventListener('scroll',function(){
     stt.classList.toggle('vis', window.scrollY>400);
   },{passive:true});
+})();
+</script>
+
+<script>
+/* ── Counter animation for stats bar ── */
+(function(){
+  var els=document.querySelectorAll('[data-count]');
+  if(!els.length)return;
+  var seen=false;
+  function animateCount(el){
+    var target=parseInt(el.getAttribute('data-count'),10);
+    var duration=1800;
+    var start=performance.now();
+    function step(now){
+      var p=Math.min((now-start)/duration,1);
+      // ease out cubic
+      var e=1-Math.pow(1-p,3);
+      el.textContent=Math.floor(e*target);
+      if(p<1)requestAnimationFrame(step);
+      else el.textContent=target;
+    }
+    requestAnimationFrame(step);
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting&&!seen){
+        seen=true;
+        els.forEach(function(el){animateCount(el);});
+        io.disconnect();
+      }
+    });
+  },{threshold:0.3});
+  var bar=document.querySelector('.stats-bar');
+  if(bar)io.observe(bar);
 })();
 </script>
 
