@@ -1115,20 +1115,21 @@ function handleEmailSub(e){
 
 
 <script>
+/* ── Back-to-top visibility ── */
 (function(){
   var stt=document.getElementById('stt');
-  window.addEventListener('scroll',function(){
+  if(stt) window.addEventListener('scroll',function(){
     stt.classList.toggle('vis', window.scrollY>400);
   },{passive:true});
-
+})();
 
 /* ── Scroll progress bar ── */
-var prog=$('prog');
+var prog=document.getElementById('prog');
 function updProg(p){ if(prog) prog.style.transform='scaleX('+p+')'; }
 
 /* ── Hero next-class chip ── */
 function updateHeroNext(sess){
-  var wrap=$('hero-next-wrap'), txt=$('hero-next-text');
+  var wrap=document.getElementById('hero-next-wrap'), txt=document.getElementById('hero-next-text');
   if(!wrap||!sess||!sess.length){return;}
   var DAYS_O=['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
   var now=new Date(), todayIdx=now.getDay(), nowMin=now.getHours()*60+now.getMinutes();
@@ -1153,7 +1154,7 @@ function updateHeroNext(sess){
 (function(){
   var g1=document.querySelector('#gallery-ip1 img');
   var g2=document.querySelector('#gallery-ip2 img');
-  var ip1=$('ip1'), ip2=$('ip2');
+  var ip1=document.getElementById('ip1'), ip2=document.getElementById('ip2');
   function set1(){ if(g1&&ip1&&ip1.src) g1.src=ip1.src; }
   function set2(){ if(g2&&ip2&&ip2.src) g2.src=ip2.src; }
   set1(); set2();
@@ -1187,11 +1188,9 @@ function showQuizResult(){
   document.getElementById('qr-desc').textContent=r.desc;
   var link=document.getElementById('qr-link');
   if(link) link.href='https://wa.me/972524119411?text='+encodeURIComponent('היי 🌿 הקוויז המליץ לי על '+rec+' — אשמח לשמוע על מועדים פנויים!');
-  var res=$('quiz-result');
+  var res=document.getElementById('quiz-result');
   if(res){res.style.display='block';setTimeout(function(){res.scrollIntoView({behavior:'smooth',block:'nearest'});},100);}
 }
-
-})();
 </script>
 
 </body></html>
