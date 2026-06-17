@@ -746,6 +746,55 @@ footer{
 #hb.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 #hb.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
+
+/* ── Schedule responsive: table on desktop, cards on mobile ── */
+@media(max-width:680px){
+  #sd{display:none}
+  #sc{display:block!important}
+}
+
+/* Schedule cards (mobile) */
+.scd{
+  background:rgba(240,237,232,.025);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:1.2rem 1.4rem;
+  display:flex;
+  align-items:center;
+  gap:1.2rem;
+  margin-bottom:.8rem;
+}
+.scd-next{border-color:rgba(138,154,134,.3);background:rgba(138,154,134,.04)}
+.sct{
+  font-family:'Karantina',cursive;
+  font-size:1.5rem;
+  font-weight:700;
+  line-height:1;
+  letter-spacing:.04em;
+  min-width:60px;
+  text-align:center;
+}
+.sct span{
+  display:block;
+  font-family:'Assistant',sans-serif;
+  font-size:.65rem;
+  font-weight:500;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin-top:.2rem;
+}
+.scn{
+  font-family:'Assistant',sans-serif;
+  font-size:.95rem;
+  font-weight:600;
+  margin-bottom:.15rem;
+}
+.scl{
+  font-family:'Assistant',sans-serif;
+  font-size:.78rem;
+  color:var(--muted);
+}
 </style>
 <!-- Person schema for instructor SEO -->
 <script type="application/ld+json">
@@ -974,7 +1023,7 @@ footer{
 <section id="schedule-section" aria-label="לוח שיעורים">
   <span class="section-label">לוח שיעורים</span>
   <h2 class="section-heading">השיעורים הקרובים</h2>
-  <div id="sd"></div>
+  <div id="sd"><p style="font-family:'Assistant',sans-serif;color:var(--muted);font-size:.88rem;padding:1.5rem 0">טוענת שיעורים...</p></div>
   <div id="sc"></div>
 </section>
 
@@ -1134,7 +1183,7 @@ footer{
 <script>
 (function(){
 'use strict';
-var PHONE='972524119411', PASS_HASH='7412a02d627f4818f5c34688ca6891041f5dd7c0d25890be87a89ebcf9f3bf03', SK='ty_s_v3';
+var PHONE='972524119411', PASS_HASH='7412a02d627f4818f5c34688ca6891041f5dd7c0d25890be87a89ebcf9f3bf03', SK='ty_s_v4';
 var DAYS=['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
 var DEFS=[
   {id:'s1',day:'שני',  time:'08:30',name:'Yoga Flow',   loc:'🏙️ הגג האורבני'},
