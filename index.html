@@ -55,14 +55,14 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Karantina:wght@300;400;700&family=Heebo:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300;400;500;700;900&family=Karantina:wght@400;700&family=Assistant:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Heebo',sans-serif;color:#fff;overflow-x:hidden;direction:rtl;-webkit-font-smoothing:antialiased}
+body{font-family:'Assistant',sans-serif;color:#fff;overflow-x:hidden;direction:rtl;-webkit-font-smoothing:antialiased}
 img{display:block;width:100%;height:100%;object-fit:cover}
 a{text-decoration:none;color:inherit}
-button{font-family:'Heebo',sans-serif;cursor:pointer}
+button{font-family:'Assistant',sans-serif;cursor:pointer}
 .hidden{display:none!important}
 :root{--acc:#8A9A86;--acc-rgb:138,154,134;--sz:80%}
 #scene{position:fixed;inset:0;z-index:0;overflow:hidden}
@@ -88,9 +88,9 @@ button{font-family:'Heebo',sans-serif;cursor:pointer}
 .d1{transition-delay:.12s}.d2{transition-delay:.24s}.d3{transition-delay:.36s}
 #nav{position:fixed;inset-inline:0;top:0;z-index:200;padding:1.6rem 3rem;display:flex;justify-content:space-between;align-items:center;transition:all .5s ease}
 #nav.sol{background:rgba(6,4,2,.92);backdrop-filter:blur(22px);padding:1rem 3rem;border-bottom:1px solid rgba(var(--acc-rgb),.2)}
-.logo{font-family:'Caveat',cursive;font-size:1.45rem;font-weight:600;letter-spacing:.12em;color:rgba(255,255,255,.92)}
+.logo{font-family:'Frank Ruhl Libre',serif;font-size:1.35rem;font-weight:500;letter-spacing:.06em;color:rgba(255,255,255,.95)}
 .nr{display:flex;align-items:center;gap:2rem}
-.na{font-size:.72rem;color:rgba(255,255,255,.7);letter-spacing:.1em;text-transform:uppercase;transition:color .3s}
+.na{font-size:.72rem;color:rgba(255,255,255,.7);letter-spacing:.1em;text-transform:uppercase;transition:color .3s;font-weight:400}
 .na:hover{color:#fff}
 .nwa{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(var(--acc-rgb),.45);color:var(--acc);border-radius:50px;padding:8px 20px;font-size:.72rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;transition:all .3s}
 .nwa:hover{background:var(--acc);color:#fff;border-color:var(--acc)}
@@ -128,7 +128,7 @@ h1.ht em{font-style:italic;display:block;color:rgba(255,255,255,.6);font-size:.7
 .apull em{color:var(--acc)}
 .abody{font-size:.95rem;color:rgba(255,255,255,.72);font-weight:300;line-height:2;margin-bottom:2rem}
 .tags{display:flex;gap:.55rem;flex-wrap:wrap}
-.tag{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(var(--acc-rgb),.3);border-radius:50px;padding:5px 14px;color:var(--acc);font-weight:300}
+.tag{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(var(--acc-rgb),.3);border-radius:50px;padding:5px 14px;color:var(--acc);font-weight:400}
 .cg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
 .cc{padding:2.4rem 2rem;border-radius:20px;transition:all .35s;position:relative;overflow:hidden}
 .cc::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--acc),transparent);opacity:.55}
@@ -307,6 +307,28 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 #stt{position:fixed;bottom:2.5rem;right:2.5rem;z-index:200;width:44px;height:44px;border-radius:50%;background:rgba(6,4,2,.7);backdrop-filter:blur(12px);border:1px solid rgba(var(--acc-rgb),.3);color:var(--acc);display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;transform:translateY(10px);transition:all .3s;font-size:1.1rem}
 #stt.vis{opacity:1;transform:translateY(0)}
 #stt:hover{background:var(--acc);color:#fff;border-color:var(--acc)}
+
+/* ── Sign-up section ── */
+.signup-grid{display:grid;grid-template-columns:1fr 1.25fr;gap:2rem;align-items:start;margin-top:.5rem}
+@media(max-width:900px){.signup-grid{grid-template-columns:1fr}}
+.su-info{padding:2.2rem 2rem}
+.su-info h3{font-family:'Frank Ruhl Libre',serif;font-size:1.4rem;font-weight:500;letter-spacing:.02em;margin-bottom:1.4rem;color:#fff}
+.su-benefits{list-style:none;display:flex;flex-direction:column;gap:.85rem}
+.su-benefits li{font-size:.9rem;color:rgba(255,255,255,.68);line-height:1.55;display:flex;gap:.7rem;align-items:flex-start}
+.su-benefits li::before{content:'';flex-shrink:0;width:5px;height:5px;background:var(--acc);border-radius:50%;margin-top:.55rem}
+.su-form{padding:2.2rem 2rem}
+.su-form-title{font-family:'Frank Ruhl Libre',serif;font-size:1.1rem;font-weight:500;margin-bottom:.3rem;letter-spacing:.02em}
+.su-form-sub{font-size:.78rem;color:rgba(255,255,255,.4);margin-bottom:1.6rem}
+.su-field{margin-bottom:1rem}
+.su-field label{display:block;font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.48);margin-bottom:.4rem;font-family:'Assistant',sans-serif}
+.su-field input,.su-field select{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:.72rem 1rem;color:#fff;font-family:'Assistant',sans-serif;font-size:.92rem;outline:none;transition:border-color .22s,background .22s;direction:rtl;-webkit-appearance:none;-moz-appearance:none}
+.su-field input:focus,.su-field select:focus{border-color:rgba(var(--acc-rgb),.65);background:rgba(255,255,255,.09)}
+.su-field input::placeholder{color:rgba(255,255,255,.22)}
+.su-field select option{background:#0D0905;color:#fff}
+.su-row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
+@media(max-width:480px){.su-row{grid-template-columns:1fr}}
+.su-btn{width:100%;justify-content:center;margin-top:.6rem;font-size:.9rem;padding:15px 24px}
+.su-note{font-size:.7rem;color:rgba(255,255,255,.28);text-align:center;margin-top:.75rem;line-height:1.5}
 </style>
 <!-- Google Analytics — replace G-XXXXXXXXXX with your Measurement ID -->
 <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -326,6 +348,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
     <a href="#classes" class="na">תרגולים</a>
     <a href="#schedule" class="na">לוח שיעורים</a>
     <a href="#pricing" class="na">מחירים</a>
+    <a href="#signup" class="na">הרשמה</a>
     <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%F0%9F%8C%BF" class="nwa" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.131.553 4.13 1.523 5.869L.057 23.882l6.186-1.462A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.358-.213-3.715.977.993-3.624-.234-.373A9.818 9.818 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818 5.419 0 9.818 4.4 9.818 9.818 0 5.419-4.399 9.818-9.818 9.818z"></path></svg> וואטסאפ</a>
     <button class="hb" id="hb" aria-label="תפריט" aria-expanded="false">
       <span class="hbl"></span><span class="hbl"></span><span class="hbl"></span>
@@ -337,6 +360,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   <a href="#classes" class="na">תרגולים</a>
   <a href="#schedule" class="na">לוח שיעורים</a>
   <a href="#pricing" class="na">מחירים</a>
+  <a href="#signup" class="na">הרשמה</a>
   <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%F0%9F%8C%BF" class="nwa" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.131.553 4.13 1.523 5.869L.057 23.882l6.186-1.462A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.358-.213-3.715.977.993-3.624-.234-.373A9.818 9.818 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818 5.419 0 9.818 4.4 9.818 9.818 0 5.419-4.399 9.818-9.818 9.818z"></path></svg> וואטסאפ</a>
 </div>
 <div id="content">
@@ -349,6 +373,63 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
     <a href="#about" class="btb">גלי עוד ↓</a>
   </div>
 </section>
+<section id="signup" aria-label="הרשמה לשיעור" class="sec">
+  <div class="si">
+    <span class="lbl r">הרשמה לשיעור</span>
+    <h2 class="sh2 r d1">קבעי את השיעור הבא שלך</h2>
+    <p class="ssub r d2">שריון מקום מהיר ופשוט — אישור בוואטסאפ תוך דקות</p>
+    <div class="signup-grid r d3">
+      <div class="su-info glass">
+        <h3>למה לבחור בטליה?</h3>
+        <ul class="su-benefits">
+          <li>קבוצות קטנות עד 8 משתתפות — תיקון אישי לכל תנועה</li>
+          <li>מיקומים שאין דומה להם: גג אורבני עם נוף העיר וחוף הים</li>
+          <li>ביטול חינם עד 24 שעות לפני השיעור</li>
+          <li>קבלת אישור ופרטים ישירות בוואטסאפ — ללא אפליקציה</li>
+          <li>מתאים לכל הרמות, כולל מתחילות גמורות</li>
+        </ul>
+      </div>
+      <div class="su-form glass">
+        <div class="su-form-title">פרטי ההרשמה</div>
+        <div class="su-form-sub">מלאי את הטופס — נחזור אליך בוואטסאפ</div>
+        <div class="su-field">
+          <label>שם מלא</label>
+          <input type="text" id="su-name" placeholder="השם שלך" autocomplete="name">
+        </div>
+        <div class="su-row">
+          <div class="su-field">
+            <label>סוג שיעור</label>
+            <select id="su-class">
+              <option value="Yoga Flow">🌿 Yoga Flow</option>
+              <option value="Pilates">⚡ Pilates</option>
+              <option value="Sunset Yoga">🌅 Sunset Yoga</option>
+            </select>
+          </div>
+          <div class="su-field">
+            <label>יום מועדף</label>
+            <select id="su-day">
+              <option value="">כל יום</option>
+              <option value="ראשון">ראשון</option>
+              <option value="שני">שני</option>
+              <option value="שלישי">שלישי</option>
+              <option value="רביעי">רביעי</option>
+              <option value="חמישי">חמישי</option>
+              <option value="שישי">שישי</option>
+            </select>
+          </div>
+        </div>
+        <div class="su-field">
+          <label>הערות (אופציונלי)</label>
+          <input type="text" id="su-note" placeholder="רמה, פציעות, שאלות...">
+        </div>
+        <button class="bta su-btn" onclick="suWA()"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.131.553 4.13 1.523 5.869L.057 23.882l6.186-1.462A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.358-.213-3.715.977.993-3.624-.234-.373A9.818 9.818 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818 5.419 0 9.818 4.4 9.818 9.818 0 5.419-4.399 9.818-9.818 9.818z"></path></svg> שלחי הרשמה בוואטסאפ ←</button>
+        <p class="su-note">ממוצע תגובה: 15 דקות · ביטול חינם עד 24 שעות לפני</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <section id="about" aria-label="אודות" class="sec">
   <div class="si">
     <div class="ag">
@@ -440,7 +521,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
     <h2 class="sh2 r d1">שבוע בתנועה</h2>
     <p class="ssub r d2">לחצי "שריון מקום" לשליחת הודעה ישירה בוואטסאפ</p>
     <div class="glass r d3" style="border-radius:20px;overflow:hidden;padding:0">
-      <div id="sd"><table class="stbl"><thead><tr><th>יום</th><th>שעה</th><th>שיעור</th><th>מיקום</th><th></th></tr></thead><tbody><tr><td>שני</td><td><span class="stm">08:30</span></td><td><span class="sti">Yoga Flow</span><span style="font-size:.7rem;color:rgba(255,255,255,.4);margin-right:.4rem">60 דק'</span></td><td><span class="slo">🏙️ הגג האורבני</span></td><td><div style="display:flex;gap:6px;align-items:center"><a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%3A)%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%A8%D7%99%D7%99%D7%9F%20%D7%9E%D7%A7%D7%95%D7%9D%20%D7%9CYoga%20Flow%20%D7%91%D7%99%D7%95%D7%9D%20%D7%A9%D7%A0%D7%99%20%D7%91%D7%A9%D7%A2%D7%94%2008%3A30" class="wab" target="_blank">שריון מקום</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Yoga%20Flow%20%C2%B7%20Talya%20Vaxbaum&amp;dates=20260615T083000/20260615T093000&amp;details=%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20Yoga%20Flow%20%D7%A2%D7%9D%20%D7%98%D7%9C%D7%99%D7%94%20%D7%95%D7%95%D7%A7%D7%A1%D7%91%D7%90%D7%95%D7%9D%0A%D7%9C%D7%A9%D7%A8%D7%99%D7%95%D7%9F%3A%20https%3A%2F%2Fwa.me%2F972524119411&amp;location=%F0%9F%8F%99%EF%B8%8F%20%D7%94%D7%92%D7%92%20%D7%94%D7%90%D7%95%D7%A8%D7%91%D7%A0%D7%99&amp;recur=RRULE:FREQ%3DWEEKLY" class="calb" target="_blank" title="הוסף ליומן Google">📅</a></div></td></tr><tr><td>שלישי</td><td><span class="stm">08:30</span></td><td><span class="sti">Yoga Flow</span><span style="font-size:.7rem;color:rgba(255,255,255,.4);margin-right:.4rem">60 דק'</span></td><td><span class="slo">🏙️ הגג האורבני</span></td><td><div style="display:flex;gap:6px;align-items:center"><a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%3A)%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%A8%D7%99%D7%99%D7%9F%20%D7%9E%D7%A7%D7%95%D7%9D%20%D7%9CYoga%20Flow%20%D7%91%D7%99%D7%95%D7%9D%20%D7%A9%D7%9C%D7%99%D7%A9%D7%99%20%D7%91%D7%A9%D7%A2%D7%94%2008%3A30" class="wab" target="_blank">שריון מקום</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Yoga%20Flow%20%C2%B7%20Talya%20Vaxbaum&amp;dates=20260616T083000/20260616T093000&amp;details=%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20Yoga%20Flow%20%D7%A2%D7%9D%20%D7%98%D7%9C%D7%99%D7%94%20%D7%95%D7%95%D7%A7%D7%A1%D7%91%D7%90%D7%95%D7%9D%0A%D7%9C%D7%A9%D7%A8%D7%99%D7%95%D7%9F%3A%20https%3A%2F%2Fwa.me%2F972524119411&amp;location=%F0%9F%8F%99%EF%B8%8F%20%D7%94%D7%92%D7%92%20%D7%94%D7%90%D7%95%D7%A8%D7%91%D7%A0%D7%99&amp;recur=RRULE:FREQ%3DWEEKLY" class="calb" target="_blank" title="הוסף ליומן Google">📅</a></div></td></tr><tr><td>רביעי</td><td><span class="stm">08:30</span></td><td><span class="sti">Yoga Flow</span><span style="font-size:.7rem;color:rgba(255,255,255,.4);margin-right:.4rem">60 דק'</span></td><td><span class="slo">🏙️ הגג האורבני</span></td><td><div style="display:flex;gap:6px;align-items:center"><a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%3A)%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%A8%D7%99%D7%99%D7%9F%20%D7%9E%D7%A7%D7%95%D7%9D%20%D7%9CYoga%20Flow%20%D7%91%D7%99%D7%95%D7%9D%20%D7%A8%D7%91%D7%99%D7%A2%D7%99%20%D7%91%D7%A9%D7%A2%D7%94%2008%3A30" class="wab" target="_blank">שריון מקום</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Yoga%20Flow%20%C2%B7%20Talya%20Vaxbaum&amp;dates=20260617T083000/20260617T093000&amp;details=%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20Yoga%20Flow%20%D7%A2%D7%9D%20%D7%98%D7%9C%D7%99%D7%94%20%D7%95%D7%95%D7%A7%D7%A1%D7%91%D7%90%D7%95%D7%9D%0A%D7%9C%D7%A9%D7%A8%D7%99%D7%95%D7%9F%3A%20https%3A%2F%2Fwa.me%2F972524119411&amp;location=%F0%9F%8F%99%EF%B8%8F%20%D7%94%D7%92%D7%92%20%D7%94%D7%90%D7%95%D7%A8%D7%91%D7%A0%D7%99&amp;recur=RRULE:FREQ%3DWEEKLY" class="calb" target="_blank" title="הוסף ליומן Google">📅</a></div></td></tr></tbody></table></div>
+      <div id="sd"><p class="sched-loading" style="padding:2.5rem;text-align:center;color:rgba(255,255,255,.3);font-size:.85rem">טוען לוח שיעורים...</p><table class="stbl"><thead><tr><th>יום</th><th>שעה</th><th>שיעור</th><th>מיקום</th><th></th></tr></thead><tbody><tr><td>שני</td><td><span class="stm">08:30</span></td><td><span class="sti">Yoga Flow</span><span style="font-size:.7rem;color:rgba(255,255,255,.4);margin-right:.4rem">60 דק'</span></td><td><span class="slo">🏙️ הגג האורבני</span></td><td><div style="display:flex;gap:6px;align-items:center"><a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%3A)%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%A8%D7%99%D7%99%D7%9F%20%D7%9E%D7%A7%D7%95%D7%9D%20%D7%9CYoga%20Flow%20%D7%91%D7%99%D7%95%D7%9D%20%D7%A9%D7%A0%D7%99%20%D7%91%D7%A9%D7%A2%D7%94%2008%3A30" class="wab" target="_blank">שריון מקום</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Yoga%20Flow%20%C2%B7%20Talya%20Vaxbaum&amp;dates=20260615T083000/20260615T093000&amp;details=%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20Yoga%20Flow%20%D7%A2%D7%9D%20%D7%98%D7%9C%D7%99%D7%94%20%D7%95%D7%95%D7%A7%D7%A1%D7%91%D7%90%D7%95%D7%9D%0A%D7%9C%D7%A9%D7%A8%D7%99%D7%95%D7%9F%3A%20https%3A%2F%2Fwa.me%2F972524119411&amp;location=%F0%9F%8F%99%EF%B8%8F%20%D7%94%D7%92%D7%92%20%D7%94%D7%90%D7%95%D7%A8%D7%91%D7%A0%D7%99&amp;recur=RRULE:FREQ%3DWEEKLY" class="calb" target="_blank" title="הוסף ליומן Google">📅</a></div></td></tr><tr><td>שלישי</td><td><span class="stm">08:30</span></td><td><span class="sti">Yoga Flow</span><span style="font-size:.7rem;color:rgba(255,255,255,.4);margin-right:.4rem">60 דק'</span></td><td><span class="slo">🏙️ הגג האורבני</span></td><td><div style="display:flex;gap:6px;align-items:center"><a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%3A)%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%A8%D7%99%D7%99%D7%9F%20%D7%9E%D7%A7%D7%95%D7%9D%20%D7%9CYoga%20Flow%20%D7%91%D7%99%D7%95%D7%9D%20%D7%A9%D7%9C%D7%99%D7%A9%D7%99%20%D7%91%D7%A9%D7%A2%D7%94%2008%3A30" class="wab" target="_blank">שריון מקום</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Yoga%20Flow%20%C2%B7%20Talya%20Vaxbaum&amp;dates=20260616T083000/20260616T093000&amp;details=%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20Yoga%20Flow%20%D7%A2%D7%9D%20%D7%98%D7%9C%D7%99%D7%94%20%D7%95%D7%95%D7%A7%D7%A1%D7%91%D7%90%D7%95%D7%9D%0A%D7%9C%D7%A9%D7%A8%D7%99%D7%95%D7%9F%3A%20https%3A%2F%2Fwa.me%2F972524119411&amp;location=%F0%9F%8F%99%EF%B8%8F%20%D7%94%D7%92%D7%92%20%D7%94%D7%90%D7%95%D7%A8%D7%91%D7%A0%D7%99&amp;recur=RRULE:FREQ%3DWEEKLY" class="calb" target="_blank" title="הוסף ליומן Google">📅</a></div></td></tr><tr><td>רביעי</td><td><span class="stm">08:30</span></td><td><span class="sti">Yoga Flow</span><span style="font-size:.7rem;color:rgba(255,255,255,.4);margin-right:.4rem">60 דק'</span></td><td><span class="slo">🏙️ הגג האורבני</span></td><td><div style="display:flex;gap:6px;align-items:center"><a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%3A)%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%A8%D7%99%D7%99%D7%9F%20%D7%9E%D7%A7%D7%95%D7%9D%20%D7%9CYoga%20Flow%20%D7%91%D7%99%D7%95%D7%9D%20%D7%A8%D7%91%D7%99%D7%A2%D7%99%20%D7%91%D7%A9%D7%A2%D7%94%2008%3A30" class="wab" target="_blank">שריון מקום</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Yoga%20Flow%20%C2%B7%20Talya%20Vaxbaum&amp;dates=20260617T083000/20260617T093000&amp;details=%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20Yoga%20Flow%20%D7%A2%D7%9D%20%D7%98%D7%9C%D7%99%D7%94%20%D7%95%D7%95%D7%A7%D7%A1%D7%91%D7%90%D7%95%D7%9D%0A%D7%9C%D7%A9%D7%A8%D7%99%D7%95%D7%9F%3A%20https%3A%2F%2Fwa.me%2F972524119411&amp;location=%F0%9F%8F%99%EF%B8%8F%20%D7%94%D7%92%D7%92%20%D7%94%D7%90%D7%95%D7%A8%D7%91%D7%A0%D7%99&amp;recur=RRULE:FREQ%3DWEEKLY" class="calb" target="_blank" title="הוסף ליומן Google">📅</a></div></td></tr></tbody></table></div>
       <div class="scds" id="sc"><div class="scd scd-next"><div class="sct">08:30<span>שני</span></div><div><div class="scn">Yoga Flow</div><div class="scl">🏙️ הגג האורבני</div></div><a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%3A)%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%A8%D7%99%D7%99%D7%9F%20%D7%9E%D7%A7%D7%95%D7%9D%20%D7%9CYoga%20Flow%20%D7%91%D7%99%D7%95%D7%9D%20%D7%A9%D7%A0%D7%99%20%D7%91%D7%A9%D7%A2%D7%94%2008%3A30" class="wab" target="_blank" style="font-size:.74rem;padding:7px 14px">שריון ←</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Yoga%20Flow%20%C2%B7%20Talya%20Vaxbaum&amp;dates=20260615T083000/20260615T093000&amp;details=%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20Yoga%20Flow%20%D7%A2%D7%9D%20%D7%98%D7%9C%D7%99%D7%94%20%D7%95%D7%95%D7%A7%D7%A1%D7%91%D7%90%D7%95%D7%9D%0A%D7%9C%D7%A9%D7%A8%D7%99%D7%95%D7%9F%3A%20https%3A%2F%2Fwa.me%2F972524119411&amp;location=%F0%9F%8F%99%EF%B8%8F%20%D7%94%D7%92%D7%92%20%D7%94%D7%90%D7%95%D7%A8%D7%91%D7%A0%D7%99&amp;recur=RRULE:FREQ%3DWEEKLY" class="calb" target="_blank" title="הוסף ליומן">📅</a></div><div class="scd"><div class="sct">08:30<span>שלישי</span></div><div><div class="scn">Yoga Flow</div><div class="scl">🏙️ הגג האורבני</div></div><a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%3A)%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%A8%D7%99%D7%99%D7%9F%20%D7%9E%D7%A7%D7%95%D7%9D%20%D7%9CYoga%20Flow%20%D7%91%D7%99%D7%95%D7%9D%20%D7%A9%D7%9C%D7%99%D7%A9%D7%99%20%D7%91%D7%A9%D7%A2%D7%94%2008%3A30" class="wab" target="_blank" style="font-size:.74rem;padding:7px 14px">שריון ←</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Yoga%20Flow%20%C2%B7%20Talya%20Vaxbaum&amp;dates=20260616T083000/20260616T093000&amp;details=%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20Yoga%20Flow%20%D7%A2%D7%9D%20%D7%98%D7%9C%D7%99%D7%94%20%D7%95%D7%95%D7%A7%D7%A1%D7%91%D7%90%D7%95%D7%9D%0A%D7%9C%D7%A9%D7%A8%D7%99%D7%95%D7%9F%3A%20https%3A%2F%2Fwa.me%2F972524119411&amp;location=%F0%9F%8F%99%EF%B8%8F%20%D7%94%D7%92%D7%92%20%D7%94%D7%90%D7%95%D7%A8%D7%91%D7%A0%D7%99&amp;recur=RRULE:FREQ%3DWEEKLY" class="calb" target="_blank" title="הוסף ליומן">📅</a></div><div class="scd"><div class="sct">08:30<span>רביעי</span></div><div><div class="scn">Yoga Flow</div><div class="scl">🏙️ הגג האורבני</div></div><a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%3A)%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%A8%D7%99%D7%99%D7%9F%20%D7%9E%D7%A7%D7%95%D7%9D%20%D7%9CYoga%20Flow%20%D7%91%D7%99%D7%95%D7%9D%20%D7%A8%D7%91%D7%99%D7%A2%D7%99%20%D7%91%D7%A9%D7%A2%D7%94%2008%3A30" class="wab" target="_blank" style="font-size:.74rem;padding:7px 14px">שריון ←</a><a href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Yoga%20Flow%20%C2%B7%20Talya%20Vaxbaum&amp;dates=20260617T083000/20260617T093000&amp;details=%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20Yoga%20Flow%20%D7%A2%D7%9D%20%D7%98%D7%9C%D7%99%D7%94%20%D7%95%D7%95%D7%A7%D7%A1%D7%91%D7%90%D7%95%D7%9D%0A%D7%9C%D7%A9%D7%A8%D7%99%D7%95%D7%9F%3A%20https%3A%2F%2Fwa.me%2F972524119411&amp;location=%F0%9F%8F%99%EF%B8%8F%20%D7%94%D7%92%D7%92%20%D7%94%D7%90%D7%95%D7%A8%D7%91%D7%A0%D7%99&amp;recur=RRULE:FREQ%3DWEEKLY" class="calb" target="_blank" title="הוסף ליומן">📅</a></div></div><div class="scd"><div class="sct">19:00<span>חמישי</span></div><div><div class="scn">Sunset Yoga</div><div class="scl">🌅 חוף צ'ארלס קלור</div></div><a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%3A%29%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%A8%D7%99%D7%99%D7%9F%20%D7%9E%D7%A7%D7%95%D7%9D%20%D7%9CSunset%20Yoga%20%D7%91%D7%99%D7%95%D7%9D%20%D7%97%D7%9E%D7%99%D7%A9%D7%99%20%D7%91%D7%A9%D7%A2%D7%94%2019%3A00" class="wab" target="_blank" style="font-size:.74rem;padding:7px 14px">שריון ←</a></div>
     </div>
   </div>
@@ -641,10 +722,7 @@ var nav=$('nav'),tp=$('tp'),root=document.documentElement;
 var pin=$('pin'),adm=$('adm'),pi=$('pi'),pe=$('pe');
 
 /* sessions */
-function ldSess(){ return []; }catch(e){}
-  try{var b=JSON.parse($('bs').textContent);if(Array.isArray(b)&&b.length)return b;}catch(e){}
-  return DEFS;
-}
+function ldSess(){ return []; }
 function svSess(list){
   try{localStorage.setItem(SK,JSON.stringify(list));}catch(e){}
   try{var el=$('bs');if(el)el.textContent=JSON.stringify(list);}catch(e){}
@@ -882,6 +960,22 @@ onScroll();
 
 
 <script>
+/* sign-up WhatsApp */
+function suWA(){
+  var name=(document.getElementById('su-name')||{}).value||'';
+  var cls=(document.getElementById('su-class')||{}).value||'Yoga Flow';
+  var day=(document.getElementById('su-day')||{}).value||'';
+  var note=(document.getElementById('su-note')||{}).value||'';
+  name=name.trim();note=note.trim();
+  var msg='היי טליה 🌿\nאני רוצה להירשם לשיעור!';
+  if(name) msg+='\nשם: '+name;
+  if(cls)  msg+='\nשיעור: '+cls;
+  if(day)  msg+='\nיום מועדף: '+day;
+  if(note) msg+='\nהערות: '+note;
+  msg+='\n\nאשמח לשמוע על המקומות הפנויים 🙏';
+  window.open('https://wa.me/'+PHONE+'?text='+encodeURIComponent(msg),'_blank');
+}
+
 function toggleFaq(btn){
   var expanded = btn.getAttribute('aria-expanded')==='true';
   btn.setAttribute('aria-expanded', !expanded);
