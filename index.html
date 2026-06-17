@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl"><head>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="manifest" href="/manifest.json">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="טליה יוגה">
 <meta name="theme-color" content="#0D0905">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='55' r='18' fill='%238A9A86'/><ellipse cx='50' cy='38' rx='10' ry='20' fill='%238A9A86' opacity='.7'/><ellipse cx='32' cy='48' rx='10' ry='18' fill='%238A9A86' opacity='.6' transform='rotate(-30 32 48)'/><ellipse cx='68' cy='48' rx='10' ry='18' fill='%238A9A86' opacity='.6' transform='rotate(30 68 48)'/></svg>">
 <title>Talya Vaxbaum · יוגה ותנועה</title>
@@ -11,9 +15,9 @@
 <!-- Open Graph -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://talya-yoga.vercel.app/">
-<meta property="og:title" content="Talya Vaxbaum · יוגה ותנועה">
-<meta property="og:description" content="שיעורי יוגה, פילאטיס ו-Sunset Yoga על גג תל אביב ומול הים. סטודיו בוטיק אינטימי.">
-<meta property="og:image" content="https://talya-yoga.vercel.app/og-image.jpg">
+<meta property="og:title" content="טליה וואקסבאום · יוגה ותנועה — תל אביב">
+<meta property="og:description" content="שיעורי יוגה, פילאטיס ו-Sunset Yoga בקבוצות קטנות ואינטימיות — גג אורבני וחוף הים. הרשמה קלה בוואטסאפ.">
+<meta property="og:image" content="https://d8j0ntlcm91z4.cloudfront.net/user_3EjXXmhhq6XdZqu3Gic5oxrhh73/hf_20260617_071200_4f2a17c5-1117-4510-99e1-7c3353340bd2.png">
 <meta property="og:locale" content="he_IL">
 
 <!-- Twitter Card -->
@@ -329,6 +333,53 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
 @media(max-width:480px){.su-row{grid-template-columns:1fr}}
 .su-btn{width:100%;justify-content:center;margin-top:.6rem;font-size:.9rem;padding:15px 24px}
 .su-note{font-size:.7rem;color:rgba(255,255,255,.28);text-align:center;margin-top:.75rem;line-height:1.5}
+
+/* ── Scroll progress bar ── */
+#prog{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(to left,var(--acc),rgba(var(--acc2-rgb),1));transform-origin:right;transform:scaleX(0);transition:transform .08s linear;z-index:999;pointer-events:none}
+
+/* ── Hero next-class chip ── */
+.hero-next-wrap{display:none;align-items:center;justify-content:center;gap:.55rem;margin-top:1.6rem;flex-wrap:wrap}
+.hero-next-chip{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18);border-radius:50px;padding:.48rem 1.1rem;font-size:.78rem;color:rgba(255,255,255,.9)}
+.hero-next-dot{width:7px;height:7px;border-radius:50%;background:#4ADE80;animation:livePulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes livePulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* ── Mobile sticky bottom bar ── */
+#mob-bar{display:none;position:fixed;bottom:0;left:0;right:0;z-index:400;padding:.6rem 1rem calc(.6rem + env(safe-area-inset-bottom));gap:.7rem;background:rgba(6,4,2,.88);backdrop-filter:blur(18px);border-top:1px solid rgba(255,255,255,.08)}
+@media(max-width:640px){#mob-bar{display:flex}}
+.mob-sched{flex:1;text-align:center;padding:.65rem .5rem;border:1px solid rgba(var(--acc-rgb),.35);border-radius:12px;color:var(--acc);font-size:.82rem;font-family:'Assistant',sans-serif;font-weight:500;text-decoration:none;letter-spacing:.04em}
+.mob-wa{flex:1;text-align:center;padding:.65rem .5rem;background:#25D366;border-radius:12px;color:#fff;font-size:.82rem;font-family:'Assistant',sans-serif;font-weight:600;text-decoration:none;display:flex;align-items:center;justify-content:center;gap:.4rem}
+
+/* ── Gallery ── */
+#gallery{padding:6rem 3rem;overflow:hidden}
+#gallery .si{}
+.gallery-track{display:grid;grid-template-columns:repeat(5,1fr);gap:.9rem;margin-top:1.5rem}
+.gitem{border-radius:14px;overflow:hidden;position:relative;aspect-ratio:4/3;background:rgba(255,255,255,.04);cursor:pointer}
+.gitem img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease;display:block}
+.gitem:hover img{transform:scale(1.06)}
+.gitem::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(6,4,2,.5) 0%,transparent 50%);opacity:0;transition:opacity .3s}
+.gitem:hover::after{opacity:1}
+@media(max-width:900px){
+  .gallery-track{grid-template-columns:repeat(3,1fr)}
+  #gallery{padding:5rem 1.5rem}
+}
+@media(max-width:580px){
+  .gallery-track{grid-template-columns:1fr 1fr;gap:.6rem}
+}
+
+/* ── Class quiz ── */
+#quiz{padding:6rem 3rem}
+@media(max-width:640px){#quiz{padding:5rem 1.5rem}}
+.quiz-wrap{max-width:680px;margin:0 auto}
+.quiz-step{margin-top:1.8rem}
+.quiz-q{font-family:'Frank Ruhl Libre',serif;font-size:1.05rem;font-weight:500;margin-bottom:.9rem;color:rgba(255,255,255,.88);letter-spacing:.01em}
+.quiz-opts{display:flex;gap:.55rem;flex-wrap:wrap}
+.qopt{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:.5rem 1.1rem;font-size:.84rem;font-family:'Assistant',sans-serif;cursor:pointer;transition:all .2s;color:rgba(255,255,255,.65);-webkit-user-select:none;user-select:none}
+.qopt:hover{background:rgba(255,255,255,.1);color:#fff}
+.qopt.sel{background:rgba(var(--acc-rgb),.2);border-color:var(--acc);color:#fff}
+#quiz-result{display:none;margin-top:2.2rem;padding:2rem;text-align:center;border-radius:20px}
+.qr-label{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--acc);margin-bottom:.6rem;font-family:'Assistant',sans-serif}
+.qr-name{font-family:'Frank Ruhl Libre',serif;font-size:2rem;font-weight:700;margin-bottom:.4rem}
+.qr-desc{font-size:.88rem;color:rgba(255,255,255,.6);margin-bottom:1.4rem;line-height:1.6}
 </style>
 <!-- Google Analytics — replace G-XXXXXXXXXX with your Measurement ID -->
 <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
@@ -363,7 +414,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   <a href="#signup" class="na">הרשמה</a>
   <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%F0%9F%8C%BF" class="nwa" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.131.553 4.13 1.523 5.869L.057 23.882l6.186-1.462A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.358-.213-3.715.977.993-3.624-.234-.373A9.818 9.818 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818 5.419 0 9.818 4.4 9.818 9.818 0 5.419-4.399 9.818-9.818 9.818z"></path></svg> וואטסאפ</a>
 </div>
-<div id="content">
+<div id="content"><div id="prog"></div>
 <section id="hero" role="banner">
   <div class="htag">סטודיו בוטיק ליוגה ותנועה — תל אביב</div>
   <h1 class="ht">תנועה.<br><em>נשימה. שקיעה.</em></h1>
@@ -372,6 +423,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
     <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%F0%9F%8C%BF%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%94%D7%A8%D7%A9%D7%9E%D7%94" class="bta" target="_blank"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.131.553 4.13 1.523 5.869L.057 23.882l6.186-1.462A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.358-.213-3.715.977.993-3.624-.234-.373A9.818 9.818 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818 5.419 0 9.818 4.4 9.818 9.818 0 5.419-4.399 9.818-9.818 9.818z"></path></svg> להרשמה לשיעור ניסיון</a>
     <a href="#about" class="btb">גלי עוד ↓</a>
   </div>
+    <div class="hero-next-wrap" id="hero-next-wrap">
+      <div class="hero-next-chip"><div class="hero-next-dot"></div><span id="hero-next-text">טוען שיעורים...</span></div>
+    </div>
 </section>
 <section id="signup" aria-label="הרשמה לשיעור" class="sec">
   <div class="si">
@@ -447,6 +501,48 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
   </div>
 </section>
 
+<section id="quiz" aria-label="איזה שיעור מתאים לי" class="sec">
+  <div class="si">
+    <span class="lbl r">גלי מה מתאים לך</span>
+    <h2 class="sh2 r d1">איזה שיעור בשבילך?</h2>
+    <p class="ssub r d2">3 שאלות קצרות ונמצא לך את השיעור המושלם</p>
+    <div class="quiz-wrap glass r d3" style="padding:2rem 2.5rem">
+      <div class="quiz-step">
+        <div class="quiz-q">מה המטרה העיקרית שלך?</div>
+        <div class="quiz-opts">
+          <button class="qopt" data-q="1" data-v="flex">גמישות ושחרור</button>
+          <button class="qopt" data-q="1" data-v="strength">כוח וחיזוק</button>
+          <button class="qopt" data-q="1" data-v="relax">הרפיה ונשימה</button>
+        </div>
+      </div>
+      <div class="quiz-step">
+        <div class="quiz-q">מה רמת הניסיון שלך?</div>
+        <div class="quiz-opts">
+          <button class="qopt" data-q="2" data-v="beg">מתחילה לגמרי</button>
+          <button class="qopt" data-q="2" data-v="mid">קצת ניסיון</button>
+          <button class="qopt" data-q="2" data-v="adv">מנוסה</button>
+        </div>
+      </div>
+      <div class="quiz-step">
+        <div class="quiz-q">מה הזמן המועדף עליך?</div>
+        <div class="quiz-opts">
+          <button class="qopt" data-q="3" data-v="morn">בוקר (08:00–10:00)</button>
+          <button class="qopt" data-q="3" data-v="noon">צהריים / אחה"צ</button>
+          <button class="qopt" data-q="3" data-v="sun">שקיעה (17:30+)</button>
+        </div>
+      </div>
+      <div id="quiz-result" class="glass">
+        <div class="qr-label">ההמלצה שלנו</div>
+        <div class="qr-name" id="qr-name"></div>
+        <div class="qr-desc" id="qr-desc"></div>
+        <a id="qr-link" href="#signup" class="bta" style="display:inline-flex;font-size:.88rem;padding:12px 28px">להרשמה ←</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 <section id="pricing" aria-label="מחירים" class="sec">
   <div class="si">
     <span class="lbl r">מחירים</span>
@@ -515,6 +611,23 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--acc);outline-offset
     </div>
   </div>
 </section>
+
+<section id="gallery" aria-label="גלריה" class="sec">
+  <div class="si">
+    <span class="lbl r">הסטודיו בתמונות</span>
+    <h2 class="sh2 r d1">האווירה שלנו</h2>
+    <p class="ssub r d2">גג אורבני, חוף הים, שמש ותנועה</p>
+    <div class="gallery-track r d3">
+      <div class="gitem"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EjXXmhhq6XdZqu3Gic5oxrhh73/hf_20260617_071200_4f2a17c5-1117-4510-99e1-7c3353340bd2.png" alt="יוגה בחוף הים" loading="lazy"></div>
+      <div class="gitem"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EjXXmhhq6XdZqu3Gic5oxrhh73/hf_20260617_062100_ee8cbbae-82eb-4af2-8825-ff240dd4757e.png" alt="שיעור יוגה" loading="lazy"></div>
+      <div class="gitem"><img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EjXXmhhq6XdZqu3Gic5oxrhh73/hf_20260617_062100_ab97d985-ec7f-4a4c-b70c-fb2aa44d98f5.png" alt="מדריכת יוגה" loading="lazy"></div>
+      <div class="gitem" id="gallery-ip1"><img src="" alt="טליה וואקסבאום" loading="lazy"></div>
+      <div class="gitem" id="gallery-ip2"><img src="" alt="סטודיו יוגה" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+
 <section id="schedule" aria-label="לוח שיעורים" class="sec">
   <div class="si">
     <span class="lbl r">לוח שיעורים</span>
@@ -781,6 +894,7 @@ function startLiveRefresh(){
         window._liveSess=ss;
         renderSched(ss);
         renderAdmTbl(ss);
+        updateHeroNext(ss);
         updateSyncStatus(true,'לייב');
       } else {
         updateSyncStatus(false,'לא נגיש');
@@ -826,7 +940,13 @@ function renderSched(overrideSess){
     if(sd)sd.innerHTML=e;if(sc)sc.innerHTML=e;return;
   }
   if(sd)sd.innerHTML='<table class="stbl"><thead><tr><th>יום</th><th>שעה</th><th>שיעור</th><th>מיקום</th><th></th></tr></thead><tbody>'+ss.map(function(s){return '<tr><td>'+s.day+'</td><td><span class="stm">'+s.time+'</span></td><td><span class="sti">'+s.name+'</span></td><td><span class="slo">'+s.loc+'</span></td><td><div style="display:flex;gap:6px;align-items:center"><a href="'+wa(s.day,s.time,s.name)+'" class="wab" target="_blank">שריון מקום</a><a href="'+gcalUrl(s.day,s.time,s.name,s.loc)+'" class="calb" target="_blank" title="הוסף ליומן Google">&#128197;</a></div></td></tr>';}).join('')+'</tbody></table>';
-  if(sc)sc.innerHTML=ss.map(function(s,i){return '<div class="scd'+(i===0?' scd-next':'')+'">'+'<div class="sct">'+s.time+'<span>'+s.day+'</span></div><div><div class="scn">'+s.name+'</div><div class="scl">'+s.loc+'</div></div><a href="'+wa(s.day,s.time,s.name)+'" class="wab" target="_blank" style="font-size:.74rem;padding:7px 14px">שריון ←</a><a href="'+gcalUrl(s.day,s.time,s.name,s.loc)+'" class="calb" target="_blank" title="הוסף ליומן">&#128197;</a></div>';}).join('');
+  if(sc)sc.innerHTML=ss.map(function(s,i){return '<div class="scd'+(i===0?' scd-next':'')+'">'+'<div class="sct">'+s.time+'<span>'+s.day+'</span></div><div><div class="scn">'+s.name+'</div><div class="scl">'+s.loc+'</div></div><a href="'+wa(s.day,s.time,s.name)+'" class="wab" target="_blank" style="font-size:.74rem;padding:7px 14px">שריון ←</a><a href="'+gcalUrl(s.day,s.time,s.name,s.loc)+'" class="calb" target="_blank" title="הוסף ליומן">&#128197;</a>
+
+<!-- Mobile sticky bar -->
+<div id="mob-bar">
+  <a href="#schedule" class="mob-sched">📅 לוח שיעורים</a>
+  <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%20%F0%9F%8C%BF" target="_blank" class="mob-wa"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"></path><path d="M12 0C5.373 0 0 5.373 0 12c0 2.131.553 4.13 1.523 5.869L.057 23.882l6.186-1.462A11.936 11.936 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.006-1.37l-.358-.213-3.715.977.993-3.624-.234-.373A9.818 9.818 0 012.182 12c0-5.418 4.4-9.818 9.818-9.818 5.419 0 9.818 4.4 9.818 9.818 0 5.419-4.399 9.818-9.818 9.818z"></path></svg> וואטסאפ</a>
+</div></div>';}).join('');
 }
 
 /* blobs */
@@ -862,6 +982,8 @@ function onScroll(){
   else{d=0;s=0;n=1;setPhase('night');}
   bgd.style.opacity=d;bgs.style.opacity=s;bgn.style.opacity=n;
   grad.style.opacity=.38+Math.sin(p*Math.PI)*.12;
+  updProg(p);
+  if(typeof stt!=='undefined'&&stt) stt.classList.toggle('vis',sy>400);
 }
 
 /* mouse blob */
@@ -998,6 +1120,77 @@ function handleEmailSub(e){
   window.addEventListener('scroll',function(){
     stt.classList.toggle('vis', window.scrollY>400);
   },{passive:true});
+
+
+/* ── Scroll progress bar ── */
+var prog=$('prog');
+function updProg(p){ if(prog) prog.style.transform='scaleX('+p+')'; }
+
+/* ── Hero next-class chip ── */
+function updateHeroNext(sess){
+  var wrap=$('hero-next-wrap'), txt=$('hero-next-text');
+  if(!wrap||!sess||!sess.length){return;}
+  var DAYS_O=['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
+  var now=new Date(), todayIdx=now.getDay(), nowMin=now.getHours()*60+now.getMinutes();
+  var best=null, bestMins=Infinity;
+  sess.forEach(function(s){
+    var di=DAYS_O.indexOf(s.day); if(di<0)return;
+    var parts=(s.time||'00:00').split(':');
+    var sm=parseInt(parts[0]||0)*60+parseInt(parts[1]||0);
+    var daysUntil=(di-todayIdx+7)%7;
+    if(daysUntil===0&&sm<=nowMin) daysUntil=7;
+    var totalMins=daysUntil*1440+sm-nowMin;
+    if(totalMins<bestMins){bestMins=totalMins;best=s;}
+  });
+  if(!best)return;
+  var h=Math.floor(bestMins/60), d=Math.floor(h/24);
+  var countdown= d>1?'עוד '+d+' ימים': d===1?'מחר': h>0?'עוד '+h+' שעות':'בקרוב';
+  txt.textContent=best.name+' · '+best.day+' '+best.time+' · '+countdown;
+  wrap.style.display='flex';
+}
+
+/* ── Gallery: wire ip1/ip2 ── */
+(function(){
+  var g1=document.querySelector('#gallery-ip1 img');
+  var g2=document.querySelector('#gallery-ip2 img');
+  var ip1=$('ip1'), ip2=$('ip2');
+  function set1(){ if(g1&&ip1&&ip1.src) g1.src=ip1.src; }
+  function set2(){ if(g2&&ip2&&ip2.src) g2.src=ip2.src; }
+  set1(); set2();
+  if(ip1) ip1.onload=set1;
+  if(ip2) ip2.onload=set2;
+})();
+
+/* ── Quiz logic ── */
+var quizAns={};
+document.querySelectorAll('.qopt').forEach(function(btn){
+  btn.addEventListener('click',function(){
+    var q=this.dataset.q;
+    document.querySelectorAll('.qopt[data-q="'+q+'"]').forEach(function(b){b.classList.remove('sel');});
+    this.classList.add('sel');
+    quizAns[q]=this.dataset.v;
+    if(Object.keys(quizAns).length>=3) showQuizResult();
+  });
+});
+function showQuizResult(){
+  var RECS={
+    'Yoga Flow':{desc:'זרימה ונשימה — השיעור המושלם לגמישות, מיינדפולנס וחיבור לגוף. כל הרמות, גג אורבני וחוף הים.',wa:'Yoga%20Flow'},
+    'Pilates':{desc:'כוח ושליטה — חיזוק הליבה, תיקון יציבה ומניעת כאבים. קבוצות מאוד קטנות, תיקון אישי לכל תנועה.',wa:'Pilates'},
+    'Sunset Yoga':{desc:'חוויה שאין שנייה לה — יוגה מול השקיעה בחוף הים. להרפיה עמוקה ורגעים שלא שוכחים.',wa:'Sunset%20Yoga'}
+  };
+  var rec;
+  if(quizAns['3']==='sun') rec='Sunset Yoga';
+  else if(quizAns['1']==='strength'||quizAns['2']==='beg') rec='Pilates';
+  else rec='Yoga Flow';
+  var r=RECS[rec];
+  document.getElementById('qr-name').textContent=rec;
+  document.getElementById('qr-desc').textContent=r.desc;
+  var link=document.getElementById('qr-link');
+  if(link) link.href='https://wa.me/972524119411?text='+encodeURIComponent('היי 🌿 הקוויז המליץ לי על '+rec+' — אשמח לשמוע על מועדים פנויים!');
+  var res=$('quiz-result');
+  if(res){res.style.display='block';setTimeout(function(){res.scrollIntoView({behavior:'smooth',block:'nearest'});},100);}
+}
+
 })();
 </script>
 
