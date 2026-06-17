@@ -209,8 +209,8 @@ body{
 }
 .hero-img{
   position:absolute;inset:0;
-  background:url('https://d8j0ntlcm91z4.cloudfront.net/user_3EjXXmhhq6XdZqu3Gic5oxrhh73/hf_20260617_062100_ee8cbbae-82eb-4af2-8825-ff240dd4757e.png') center/cover no-repeat;
-  opacity:.32;
+  background:center/cover no-repeat;
+  opacity:.45;
 }
 .hero-img::after{
   content:'';
@@ -949,8 +949,7 @@ footer{
 
 <section id="about" aria-label="אודות">
   <div class="about-img r">
-    <img src="https://d8j0ntlcm91z4.cloudfront.net/user_3EjXXmhhq6XdZqu3Gic5oxrhh73/hf_20260617_062100_ab97d985-ec7f-4a4c-b70c-fb2aa44d98f5.png"
-         alt="טליה וואקסבאום מדריכת יוגה" loading="lazy">
+    <img id="about-photo" src="" alt="טליה וואקסבאום מדריכת יוגה" loading="lazy">
   </div>
   <div class="about-right r d1">
     <span class="about-tag">אודות</span>
@@ -1428,6 +1427,17 @@ function renderAdmTbl(overrideSess){
 applyBlobs('day');
 // If Google Sheets URL is saved, fetch live; otherwise use defaults
 startLiveRefresh();
+/* wire original Talya photos from embedded data */
+(function(){
+  var ip1=document.getElementById('ip1');
+  var ip2=document.getElementById('ip2');
+  var heroDiv=document.querySelector('.hero-img');
+  var aboutImg=document.getElementById('about-photo');
+  if(ip2&&ip2.src&&heroDiv) heroDiv.style.backgroundImage="url('"+ip2.src+"')";
+  if(ip1&&ip1.src&&aboutImg) aboutImg.src=ip1.src;
+  if(ip1) ip1.onload=function(){ if(aboutImg) aboutImg.src=ip1.src; };
+  if(ip2) ip2.onload=function(){ if(heroDiv) heroDiv.style.backgroundImage="url('"+ip2.src+"')"; };
+})();
 window.addEventListener('scroll',onScroll,{passive:true});
 onScroll();
 })();
