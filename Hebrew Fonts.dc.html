@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600&family=Heebo:wght@300;400;700&family=Rubik:wght@400;500;700&family=Varela+Round&family=Secular+One&family=Alef:wght@400;700&family=IBM+Plex+Sans+Hebrew:wght@300;400;600&family=Noto+Sans+Hebrew:wght@300;400;700&family=Open+Sans:wght@300;400;600&family=Arimo:wght@400;700&family=Cousine:wght@400;700&family=Frank+Ruhl+Libre:wght@300;500;900&family=David+Libre:wght@400;500;700&family=Miriam+Libre:wght@400;700&family=Suez+One&family=Bellefair&family=Noto+Serif+Hebrew:wght@400;700&family=Tinos:wght@400;700&family=Karantina:wght@400;700&family=Amatic+SC:wght@400;700&family=Noto+Rashi+Hebrew:wght@400;700&display=swap" rel="stylesheet">
+<style>
+@font-face{font-family:'Gveret Levin AlefAlefAlef';font-display:swap;src:url('https://cdn.jsdelivr.net/gh/google/fonts@main/ofl/gveretlevin/GveretLevin-Regular.ttf') format('truetype')}
+@font-face{font-family:'Journal CLM';font-weight:300;font-display:swap;src:url('fonts/JournalCLM-Light.otf') format('opentype')}
+body{margin:0}
+</style>
+</helmet>
+<div dir="rtl" style="background:#0D0905;min-height:100vh;color:#fff;font-family:'Assistant',sans-serif;-webkit-font-smoothing:antialiased;padding:72px clamp(20px,6vw,96px) 120px">
+
+  <div style="max-width:1080px;margin:0 auto">
+
+    <div style="margin-bottom:64px">
+      <div style="font-size:.66rem;letter-spacing:.22em;color:#8A9A86;text-transform:uppercase;display:flex;align-items:center;gap:10px;margin-bottom:20px">
+        <span style="width:28px;height:1px;background:#8A9A86;opacity:.7;display:inline-block"></span>
+        טיפוגרפיה עברית · Talya Yoga
+      </div>
+      <h1 style="font-family:'Frank Ruhl Libre',serif;font-weight:300;font-size:clamp(2.4rem,5.5vw,4rem);line-height:1.05;margin:0 0 18px">פונטים בעברית לבחירה</h1>
+      <p style="max-width:520px;color:rgba(255,255,255,.62);font-weight:300;line-height:1.9;font-size:1.02rem;margin:0">מבחר משפחות גופנים בעברית — מודרני, קלאסי, תצוגה וכתב יד. כל גופן מוצג עם דוגמת טקסט מהאתר. בחרי אילו להחיל ועל אילו אזורים.</p>
+    </div>
+
+    <sc-for list="{{ groups }}" as="group" hint-placeholder-count="4">
+      <div style="margin-bottom:56px">
+        <div style="display:flex;align-items:baseline;gap:14px;margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid rgba(138,154,134,.22)">
+          <span style="font-family:'Karantina',cursive;font-size:1.6rem;color:#8A9A86">{{ group.title }}</span>
+          <span style="font-size:.7rem;letter-spacing:.1em;color:rgba(255,255,255,.4);text-transform:uppercase">{{ group.sub }}</span>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px">
+          <sc-for list="{{ group.fonts }}" as="f" hint-placeholder-count="3">
+            <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:26px 28px;transition:border-color .3s" style-hover="background:rgba(255,255,255,.05);border:1px solid rgba(138,154,134,.4);border-radius:14px;padding:26px 28px">
+              <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:18px">
+                <span style="font-size:.84rem;color:rgba(255,255,255,.85);letter-spacing:.02em">{{ f.name }}</span>
+                <span style="font-size:.64rem;color:rgba(255,255,255,.35);font-family:'Heebo',sans-serif">{{ f.latin }}</span>
+              </div>
+              <div style="font-family:{{ f.stack }};font-size:2.7rem;line-height:1.1;color:#fff;margin-bottom:14px;word-break:break-word">תנועה. נשימה. שקיעה.</div>
+              <div style="font-family:{{ f.stack }};font-size:1.05rem;line-height:1.8;color:rgba(255,255,255,.6)">סטודיו בוטיק ליוגה ותנועה בתל אביב — שיעורי יוגה, פילאטיס ושקיעה על הגג.</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    const F = (name, latin, stack) => ({ name, latin, stack });
+    return {
+      groups: [
+        {
+          title: "מודרני / Sans",
+          sub: "clean · ui · body",
+          fonts: [
+            F("אסיסטנט", "Assistant", "'Assistant',sans-serif"),
+            F("היבו", "Heebo", "'Heebo',sans-serif"),
+            F("רוביק", "Rubik", "'Rubik',sans-serif"),
+            F("ורלה ראונד", "Varela Round", "'Varela Round',sans-serif"),
+            F("אלף", "Alef", "'Alef',sans-serif"),
+            F("סקולר וואן", "Secular One", "'Secular One',sans-serif"),
+            F("IBM פלקס", "IBM Plex Sans Hebrew", "'IBM Plex Sans Hebrew',sans-serif"),
+            F("נוטו סאנס", "Noto Sans Hebrew", "'Noto Sans Hebrew',sans-serif"),
+            F("אופן סאנס", "Open Sans", "'Open Sans',sans-serif"),
+            F("ארימו", "Arimo", "'Arimo',sans-serif"),
+          ],
+        },
+        {
+          title: "קלאסי / Serif",
+          sub: "elegant · headings",
+          fonts: [
+            F("פרנק רוהל", "Frank Ruhl Libre", "'Frank Ruhl Libre',serif"),
+            F("דיוויד", "David Libre", "'David Libre',serif"),
+            F("מרים", "Miriam Libre", "'Miriam Libre',serif"),
+            F("סואץ וואן", "Suez One", "'Suez One',serif"),
+            F("בלפייר", "Bellefair", "'Bellefair',serif"),
+            F("נוטו סריף", "Noto Serif Hebrew", "'Noto Serif Hebrew',serif"),
+            F("טינוס", "Tinos", "'Tinos',serif"),
+          ],
+        },
+        {
+          title: "מונוספייס / Mono",
+          sub: "code · numbers",
+          fonts: [
+            F("קוזין", "Cousine", "'Cousine',monospace"),
+          ],
+        },
+        {
+          title: "תצוגה / Display",
+          sub: "bold · hero",
+          fonts: [
+            F("קרנטינה", "Karantina", "'Karantina',cursive"),
+            F("אמטיק", "Amatic SC", "'Amatic SC',cursive"),
+          ],
+        },
+        {
+          title: "כתב יד / Handwriting",
+          sub: "script · accent",
+          fonts: [
+            F("ז'ורנל (Journal)", "Journal CLM", "'Journal CLM',cursive"),
+            F("גברת לוין", "Gveret Levin", "'Gveret Levin AlefAlefAlef',cursive"),
+            F("אמטיק (כתב יד)", "Amatic SC", "'Amatic SC',cursive"),
+            F("נוטו רש\"י", "Noto Rashi", "'Noto Rashi Hebrew',serif"),
+          ],
+        },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
