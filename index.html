@@ -509,4 +509,58 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
   mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mob.classList.remove('open');});});
 })();
 </script>
+
+<!-- ========================================================================
+     LESSONS FROM GOOGLE SHEET
+     To add / remove lessons you only edit the Google Sheet — never this file.
+     Sheet columns (first row must be exactly): day, class, location, time
+     Paste your sheet's "Publish to web -> CSV" link between the quotes below.
+     If the link is empty or the sheet can't be reached, the lessons written
+     directly in the page above are shown instead (so the site never breaks).
+======================================================================== -->
+<script>
+(function(){
+  // ====== EDIT ONLY THIS LINE ======
+  var LESSONS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTtovE3jfu0MnLYiwOUUcbTyAW8189YYRvvxtKvyYSYyxO71ytcTO4L1b1Sum4FjdZtIie_Nm008t12/pub?gid=437725493&single=true&output=csv"; // <-- paste the Google Sheet "Publish to web -> CSV" link here
+  // =================================
+  var WA_NUMBER = "972524119411";
+
+  var listEl = document.querySelector('.sched-list');
+  if(!listEl || !LESSONS_CSV_URL) return; // no sheet configured -> keep built-in lessons
+
+  function esc(s){ return (s||"").replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+  function waLink(cls,day,time){
+    return "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent("היי 🌿 "+[cls,day,time].filter(Boolean).join(" "));
+  }
+  function parseCSV(text){
+    var rows=[],row=[],cur="",inside=false,c; text=text.replace(/\r\n?/g,"\n");
+    for(var i=0;i<text.length;i++){ c=text[i];
+      if(inside){ if(c=='"'){ if(text[i+1]=='"'){cur+='"';i++;} else inside=false; } else cur+=c; }
+      else { if(c=='"') inside=true; else if(c==',') {row.push(cur);cur="";}
+             else if(c=='\n'){row.push(cur);rows.push(row);row=[];cur="";} else cur+=c; }
+    }
+    if(cur.length||row.length){row.push(cur);rows.push(row);}
+    return rows;
+  }
+
+  fetch(LESSONS_CSV_URL).then(function(r){ if(!r.ok) throw 0; return r.text(); }).then(function(txt){
+    var rows = parseCSV(txt).filter(function(r){ return r.some(function(x){ return (x||"").trim()!==""; }); });
+    if(!rows.length) return;
+    var head = rows[0].map(function(h){ return (h||"").trim().toLowerCase(); });
+    var di=head.indexOf('day'), ci=head.indexOf('class'), li=head.indexOf('location'), ti=head.indexOf('time');
+    if(di<0||ci<0||ti<0) return; // headers not as expected -> keep built-in lessons
+    var data = rows.slice(1).map(function(r){
+      return { day:(r[di]||"").trim(), cls:(r[ci]||"").trim(), loc:(li>=0?(r[li]||"").trim():""), time:(r[ti]||"").trim() };
+    }).filter(function(x){ return x.day||x.cls||x.time; });
+
+    listEl.innerHTML = data.length ? data.map(function(x){
+      return '<a class="srow" href="'+waLink(x.cls,x.day,x.time)+'" target="_blank">'+
+        '<span class="day">'+esc(x.day)+'</span>'+
+        '<span class="info"><b>'+esc(x.cls)+'</b><span>'+esc(x.loc)+'</span></span>'+
+        '<span class="time">'+esc(x.time)+'</span>'+
+        '<span class="book">שריון ←</span></a>';
+    }).join('') : '<p style="color:var(--muted);padding:1.6rem 0;font-size:1rem">אין שיעורים מתוכננים כרגע 🌿</p>';
+  }).catch(function(){ /* any error -> keep the built-in lessons already on the page */ });
+})();
+</script>
 </body></html>
