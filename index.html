@@ -44,11 +44,11 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 #bgL3{background-image:url('assets/bgn.jpeg')}
 
 /* ============ pencil wave (draws as you scroll) ============ */
-#wave{position:fixed;top:0;bottom:0;left:0;width:80px;z-index:5;pointer-events:none;display:flex;align-items:stretch}
+#wave{position:fixed;top:0;bottom:0;right:0;width:100px;z-index:5;pointer-events:none;display:flex;align-items:stretch}
 #wave svg{height:100%;width:100%;overflow:visible}
-#wavePath{fill:none;stroke:var(--sage);stroke-width:1.4;opacity:.5;stroke-linecap:round}
+#wavePath{fill:none;stroke:var(--sage);stroke-width:1.6;opacity:.45;stroke-linecap:round;stroke-linejoin:round}
 #waveTip{font-size:18px;opacity:.8;transition:opacity .4s}
-@media(max-width:760px){#wave{width:46px;opacity:.5}}
+@media(max-width:760px){#wave{width:54px;opacity:.45}}
 
 /* ============ shell ============ */
 #page{position:relative;z-index:3}
@@ -247,8 +247,8 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
 
 <!-- pencil wave -->
 <div id="wave" aria-hidden="true">
-  <svg viewBox="0 0 80 1000" preserveAspectRatio="none">
-    <path id="wavePath" d="M40 0 C70 70 10 140 40 210 C70 280 10 350 40 420 C70 490 10 560 40 630 C70 700 10 770 40 840 C70 910 25 960 40 1000"/>
+  <svg viewBox="0 0 100 1000" preserveAspectRatio="none">
+    <path id="wavePath" d="M82 0 C82 30 8 55 8 90 C8 115 82 130 82 155 C82 185 8 210 8 245 C8 270 82 285 82 310 C82 340 8 365 8 400 C8 425 82 440 82 465 C82 495 8 520 8 555 C8 580 82 595 82 620 C82 650 8 675 8 710 C8 735 82 750 82 775 C82 805 8 830 8 865 C8 890 82 905 82 930 C82 960 50 985 82 1000"/>
   </svg>
 </div>
 
