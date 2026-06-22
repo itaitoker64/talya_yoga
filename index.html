@@ -43,16 +43,10 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 #bgL2{background-image:url('assets/bgs.jpeg')}
 #bgL3{background-image:url('assets/bgn.jpeg')}
 
-/* ============ pencil wave (draws as you scroll) ============ */
-#wave{position:fixed;top:0;bottom:0;right:0;width:38px;z-index:5;pointer-events:none;display:flex;align-items:stretch}
-#wave svg{height:100%;width:100%;overflow:visible}
-#wavePath{fill:none;stroke:var(--sage);stroke-width:1.8;opacity:.55;stroke-linecap:round;stroke-linejoin:round}
-#waveTip{font-size:18px;opacity:.8;transition:opacity .4s}
-@media(max-width:760px){#wave{width:24px;opacity:.4}}
 
 /* ============ shell ============ */
 #page{position:relative;z-index:3}
-.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1.4rem,5vw,4.5rem);padding-right:max(clamp(1.4rem,5vw,4.5rem),48px)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(1.4rem,5vw,4.5rem)}
 section{position:relative}
 
 /* ============ nav ============ */
@@ -257,12 +251,6 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
   <div class="veil"></div>
 </div>
 
-<!-- pencil wave -->
-<div id="wave" aria-hidden="true">
-  <svg viewBox="0 0 38 1000" preserveAspectRatio="none">
-    <path id="wavePath" d="M33 0 C33 12 5 28 5 42 C5 62 33 76 33 92 C33 108 5 124 5 138 C5 158 33 172 33 188 C33 204 5 220 5 234 C5 254 33 268 33 284 C33 300 5 316 5 330 C5 350 33 364 33 380 C33 396 5 412 5 426 C5 446 33 460 33 476 C33 492 5 508 5 522 C5 542 33 556 33 572 C33 588 5 604 5 618 C5 638 33 652 33 668 C33 684 5 700 5 714 C5 734 33 748 33 764 C33 780 5 796 5 810 C5 830 33 844 33 860 C33 876 5 892 5 906 C5 926 33 940 33 956 C33 972 20 988 33 1000"/>
-  </svg>
-</div>
 
 <!-- nav -->
 <nav id="nav">
@@ -471,10 +459,6 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
 (function(){
   var nav=document.getElementById('nav');
   var L1=document.getElementById('bgL1'),L2=document.getElementById('bgL2'),L3=document.getElementById('bgL3');
-  var wavePath=document.getElementById('wavePath');
-  var waveLen=wavePath.getTotalLength();
-  wavePath.style.strokeDasharray=waveLen;
-  wavePath.style.strokeDashoffset=waveLen;
 
   function lerp(a,b,t){return a+(b-a)*t;}
   function clamp(v){return v<0?0:v>1?1:v;}
@@ -495,12 +479,9 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
     L2.style.opacity=o2;
     L3.style.opacity=o3;
 
-    // pencil wave draws with scroll
-    var drawn=waveLen*clamp(p);
-    wavePath.style.strokeDashoffset=waveLen-drawn;
   }
   window.addEventListener('scroll',onScroll,{passive:true});
-  window.addEventListener('resize',function(){waveLen=wavePath.getTotalLength();wavePath.style.strokeDasharray=waveLen;onScroll();});
+  window.addEventListener('resize',function(){onScroll();});
   onScroll();
 
   // reveal on view
