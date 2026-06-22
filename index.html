@@ -37,11 +37,11 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 #bgscene{position:fixed;inset:0;z-index:0;overflow:hidden;background:var(--warm)}
 #bgscene .bgl{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.1s ease;will-change:opacity;transform:scale(1.04)}
 #bgscene .veil{position:absolute;inset:0;background:
-  radial-gradient(120% 80% at 70% 10%, rgba(247,246,242,.55), rgba(247,246,242,.86) 60%, rgba(247,246,242,.95));
+  radial-gradient(120% 80% at 70% 10%, rgba(247,246,242,.34), rgba(247,246,242,.52) 60%, rgba(247,246,242,.62));
   z-index:2}
 #bgL1{background-image:url('assets/bgd.jpeg')}
 #bgL2{background-image:url('assets/bgs.jpeg')}
-#bgL3{background-image:url('assets/bgn.jpeg')}
+#bgL3{background-image:url('assets/lastimage.jpeg')}
 
 
 /* ============ shell ============ */
@@ -50,27 +50,30 @@ button{font-family:inherit;cursor:pointer;border:none;background:none}
 section{position:relative}
 
 /* ============ nav ============ */
-nav{position:fixed;top:0;inset-inline:0;z-index:50;display:flex;align-items:center;justify-content:space-between;
+nav{position:fixed;top:0;inset-inline:0;z-index:50;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;
   padding:1.5rem clamp(1.4rem,5vw,4.5rem);transition:background .5s,padding .5s,box-shadow .5s}
 nav.solid{background:rgba(247,246,242,.78);backdrop-filter:blur(18px);padding:.9rem clamp(1.4rem,5vw,4.5rem);box-shadow:0 1px 0 rgba(58,58,51,.06)}
-.brand{display:flex;align-items:center;gap:.7rem;color:var(--charcoal)}
+.brand{display:flex;align-items:center;gap:.7rem;color:var(--charcoal);justify-content:center}
 .brand .mark{width:34px;height:34px;flex:none}
-.brand .bt{display:flex;flex-direction:column;line-height:1}
+.brand .bt{display:flex;flex-direction:column;line-height:1;align-items:center}
 .brand .bt b{font-family:var(--serifHe);font-weight:500;font-size:1.06rem;letter-spacing:.02em}
-.brand .bt span{font-family:var(--serifLat);font-size:.6rem;letter-spacing:.42em;color:var(--sage);text-transform:uppercase;margin-top:3px;padding-right:2px}
-.navlinks{display:flex;align-items:center;gap:2.3rem}
-.navlinks a{font-size:.74rem;letter-spacing:.16em;color:var(--ink);text-transform:uppercase;font-weight:400;transition:color .3s;position:relative}
-.navlinks a::after{content:'';position:absolute;bottom:-5px;right:0;width:0;height:1px;background:var(--sage);transition:width .35s}
-.navlinks a:hover{color:var(--sage)}
-.navlinks a:hover::after{width:100%}
+.brand .bt span{font-family:var(--serifLat);font-size:.6rem;letter-spacing:.42em;color:var(--sage);text-transform:uppercase;margin-top:3px;text-align:center}
+.nav-side{display:flex;align-items:center;gap:2.3rem}
+.nav-side.right{justify-content:flex-start}
+.nav-side.left{justify-content:flex-end}
+.nav-side a{font-size:.74rem;letter-spacing:.16em;color:var(--ink);text-transform:uppercase;font-weight:400;transition:color .3s;position:relative}
+.nav-side a:not(.navcta)::after{content:'';position:absolute;bottom:-5px;right:0;width:0;height:1px;background:var(--sage);transition:width .35s}
+.nav-side a:not(.navcta):hover{color:var(--sage)}
+.nav-side a:not(.navcta):hover::after{width:100%}
 .navcta{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--sage);color:var(--sage);
   padding:.62rem 1.5rem;border-radius:50px;transition:all .35s}
 .navcta:hover{background:var(--sage);color:var(--warm)}
 .burger{display:none;flex-direction:column;gap:5px;width:26px}
 .burger span{height:1.5px;background:var(--charcoal);transition:.3s}
 @media(max-width:900px){
-  .navlinks,.navcta{display:none}
-  .burger{display:flex}
+  nav{display:flex;justify-content:center}
+  .nav-side{display:none}
+  .burger{display:flex;position:absolute;inset-inline-start:clamp(1.4rem,5vw,4.5rem);top:50%;transform:translateY(-50%)}
 }
 
 /* mobile menu */
@@ -81,11 +84,11 @@ nav.solid{background:rgba(247,246,242,.78);backdrop-filter:blur(18px);padding:.9
 #mobnav a span{font-family:var(--serifLat);font-size:.8rem;letter-spacing:.3em;color:var(--sage);display:block;text-align:center;text-transform:uppercase}
 
 /* ============ hero ============ */
-#hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;
+#hero{min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;text-align:left;
   padding:8rem clamp(1.4rem,5vw,4.5rem) 6rem;position:relative}
 .hero-img{position:absolute;inset:0;z-index:-1;overflow:hidden}
-.hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(270deg,rgba(247,246,242,.93) 0%,rgba(247,246,242,.6) 42%,rgba(247,246,242,.18) 100%)}
-.hero-img img{width:100%;height:100%;object-fit:cover;object-position:center 60%}
+.hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(247,246,242,.93) 0%,rgba(247,246,242,.6) 42%,rgba(247,246,242,.18) 100%)}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:center 60%;transform:scaleX(-1)}
 .hero-eyebrow{font-family:var(--script);font-size:clamp(1.7rem,3.4vw,2.6rem);color:var(--sage);line-height:1;margin-bottom:.6rem}
 .hero h1{font-family:'Cormorant Garamond','Frank Ruhl Libre',serif;font-weight:300;font-size:clamp(5rem,14vw,11rem);line-height:.88;color:var(--charcoal);letter-spacing:.02em;margin-bottom:2.8rem}
 .hero h1 em{font-style:normal;color:var(--sage)}
@@ -96,7 +99,8 @@ nav.solid{background:rgba(247,246,242,.78);backdrop-filter:blur(18px);padding:.9
 .pill:hover{background:var(--sagedeep);transform:translateY(-2px);box-shadow:0 14px 30px -12px rgba(86,97,69,.5)}
 .pill.ghost{background:transparent;color:var(--sage);border:1px solid rgba(107,122,94,.4)}
 .pill.ghost:hover{background:var(--sage);color:var(--warm);box-shadow:none}
-.hero-cues{display:flex;gap:1rem;flex-wrap:wrap;align-items:center}
+.hero-cues{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;justify-content:flex-end}
+.hero-cues .pill{padding:.68rem 1.5rem;font-size:.7rem}
 .scrollcue{position:absolute;bottom:2.2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--taupe)}
 .scrollcue span{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase}
 .scrollcue .ln{width:1px;height:42px;background:linear-gradient(var(--taupe),transparent);animation:cue 2.4s ease-in-out infinite}
@@ -114,10 +118,10 @@ nav.solid{background:rgba(247,246,242,.78);backdrop-filter:blur(18px);padding:.9
 
 /* ============ philosophy ============ */
 #philo{padding:clamp(10rem,18vw,16rem) 0}
-.philo-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,6vw,6rem);align-items:center}
+.philo-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5.5rem);align-items:center}
 .philo-text .h2{margin-bottom:1.8rem}
 .philo-img{position:relative}
-.philo-img .main{border-radius:360px 360px 10px 10px;overflow:hidden;aspect-ratio:3/5.4;box-shadow:0 80px 140px -80px rgba(58,58,51,.35)}
+.philo-img .main{border-radius:190px 190px 16px 16px;overflow:hidden;aspect-ratio:9/16;max-width:400px;margin-inline:auto;box-shadow:0 60px 120px -70px rgba(58,58,51,.4)}
 .philo-img .main img{width:100%;height:100%;object-fit:cover}
 .philo-img .side{position:absolute;bottom:-30px;left:-40px;width:55%;aspect-ratio:1/1.1;border-radius:18px;overflow:hidden;box-shadow:0 20px 50px -20px rgba(58,58,51,.35);border:4px solid var(--warm)}
 .philo-img .side img{width:100%;height:100%;object-fit:cover}
@@ -139,13 +143,14 @@ nav.solid{background:rgba(247,246,242,.78);backdrop-filter:blur(18px);padding:.9
 .c3{grid-column:10/13;grid-row:1/6}
 .c4{grid-column:6/10;grid-row:4/7}
 .c5{grid-column:1/6;grid-row:5/8}
+.c6{grid-column:10/13;grid-row:6/8}
 .collage .quote{grid-column:10/13;grid-row:6/8;display:flex;align-items:center;padding:1.4rem}
 .collage .quote p{font-family:var(--serifLat);font-style:italic;font-size:1.15rem;color:var(--sage);line-height:1.4}
 @media(max-width:860px){
   .collage{grid-auto-rows:30vw}
   .c1{grid-column:1/8;grid-row:1/2}.c2{grid-column:8/13;grid-row:1/2}
   .c3{grid-column:1/13;grid-row:2/3}.c4{grid-column:1/7;grid-row:3/4}
-  .c5{grid-column:7/13;grid-row:3/4}.collage .quote{grid-column:1/13;grid-row:4/5;justify-content:center;text-align:center}
+  .c5{grid-column:7/13;grid-row:3/4}.c6{grid-column:1/13;grid-row:4/5}.collage .quote{grid-column:1/13;grid-row:4/5;justify-content:center;text-align:center}
 }
 
 /* ============ classes ============ */
@@ -227,11 +232,24 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
   display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px -8px rgba(58,58,51,.5);transition:transform .3s}
 #wa:hover{transform:scale(1.08)}
 #wa svg{width:26px;height:26px;fill:var(--warm)}
-/* ============ wave section dividers ============ */
-.sec-wave{position:relative;z-index:2;pointer-events:none;height:70px;overflow:visible;line-height:0;margin-top:-1px}
-.sec-wave svg{display:block;width:100%;height:100%}
-@keyframes wavedrift{0%,100%{transform:translateX(0)}50%{transform:translateX(-2%)}}
-.sec-wave svg{animation:wavedrift 26s ease-in-out infinite}
+/* ============ flowing wave transitions ============ */
+#philo{background:rgba(239,234,224,.6)}
+#editorial{background:rgba(231,222,205,.58)}
+#classes{background:rgba(247,246,242,.5)}
+#schedule{background:rgba(239,234,224,.94)}
+#gallery{background:rgba(231,222,205,.58)}
+.wavetop{position:absolute;left:0;top:0;width:100%;height:clamp(44px,6vw,82px);transform:translateY(-99%);z-index:1;pointer-events:none;line-height:0}
+.wavetop svg{display:block;width:100%;height:100%}
+/* soft circle blobs */
+.blob{position:absolute;border-radius:50%;pointer-events:none;z-index:0}
+/* arched class images */
+.cls-arch{width:100%;aspect-ratio:1/1.16;border-radius:48% 48% 10px 10px / 34% 34% 8px 8px;overflow:hidden;margin-bottom:1.8rem;box-shadow:0 34px 64px -36px rgba(58,58,51,.5)}
+.cls-arch img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s ease}
+.cls:hover .cls-arch img{transform:scale(1.05)}
+.cls{border-top:none;padding:1rem 0;text-align:center;align-items:center}
+.cls .meta{justify-content:center}
+.cls .link{align-self:center}
+.cls:hover{border-color:transparent}
 
 /* ============ organic background illustrations ============ */
 .bg-illo{position:absolute;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
@@ -239,7 +257,37 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
 
 /* ============ editorial classes ============ */
 .cls-link-row{display:flex;align-items:center;gap:1.2rem;margin-top:auto}
+/* ============ brand iconography decorations ============ */
+.icon-deco{position:absolute;pointer-events:none;z-index:0;will-change:transform,opacity}
+.icon-deco svg{display:block;width:100%;height:100%}
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+@keyframes floatY2{0%,100%{transform:translateY(0)}50%{transform:translateY(13px)}}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.16)}}
+@keyframes swayR{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.deco-float{animation:floatY 15s ease-in-out infinite}
+.deco-float2{animation:floatY2 19s ease-in-out infinite}
+.deco-spin{animation:spinSlow 130s linear infinite}
+.deco-breathe{animation:breathe 9s ease-in-out infinite}
+.deco-sway{transform-origin:50% 92%;animation:swayR 11s ease-in-out infinite}
+.deco-fade{opacity:0;transition:opacity 1.7s ease,transform 1.7s ease;transform:translateY(16px)}
+.deco-fade.in{opacity:var(--op,.12);transform:none}
+#hero>.hero-eyebrow,#hero>p,#hero>.hero-cues,#hero>.scrollcue{position:relative;z-index:2}
+#editorial .wrap,#contact .wrap,footer .wrap{position:relative;z-index:1}
 </style>
+<link id="gfont-Dancing-Script" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Dosis" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Playfair-Display" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Caveat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Pacifico" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Architects-Daughter" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Architects+Daughter:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Comfortaa" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Lora" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Quicksand" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Abril-Fatface" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Abril+Fatface:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Montserrat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Merriweather" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Karla" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700&amp;display=swap">
 </head>
 <body>
 
@@ -254,26 +302,18 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
 
 <!-- nav -->
 <nav id="nav">
-  <a href="#hero" class="brand" aria-label="טליה וקסבאום">
-    <svg class="mark" viewBox="0 0 100 100" fill="none" stroke="#6B7A5E" stroke-width="2.4" stroke-linecap="round">
-      <circle cx="50" cy="50" r="9"/>
-      <g stroke-width="2">
-        <line x1="50" y1="20" x2="50" y2="30"/><line x1="68" y1="26" x2="63" y2="34"/>
-        <line x1="32" y1="26" x2="37" y2="34"/><line x1="78" y1="40" x2="71" y2="44"/>
-        <line x1="22" y1="40" x2="29" y2="44"/>
-      </g>
-      <path d="M16 70 Q50 58 84 70" stroke-width="2.2"/>
-    </svg>
-    <span class="bt"><b>טליה וקסבאום</b><span>Movement Studio</span></span>
-  </a>
-  <div class="navlinks">
+  <div class="nav-side right">
     <a href="#hero">בית</a>
     <a href="#philo">אודות</a>
     <a href="#classes">שיעורים</a>
+  </div>
+  <a href="#hero" class="brand" aria-label="טליה וקסבאום">
+    <span class="bt"><b>TALYA</b><span>HEALING MOTION</span></span>
+  </a>
+  <div class="nav-side left">
     <a href="#schedule">לוח</a>
     <a href="#contact">צור קשר</a>
   </div>
-  <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D" target="_blank" class="navcta">הרשמה</a>
   <button class="burger" id="burger" aria-label="תפריט"><span></span><span></span><span></span></button>
 </nav>
 
@@ -289,10 +329,11 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
   <!-- hero -->
   <section id="hero">
     <div class="hero-img"><img src="assets/bgd.jpeg" alt="טליה וקסבאום מתרגלת יוגה מול הים"></div>
-    <div class="hero-eyebrow">Move · Breathe · Heal</div>
-    <h1>תנועה.<br>נשימה.<br><em>ריפוי.</em></h1>
-    <p>יוגה, פילאטיס ותנועה — על גג תל אביבי ומול הים.
-      <span class="lat">A boutique movement studio in Tel Aviv</span></p>
+    <div class="icon-deco deco-float" style="width:360px;height:360px;top:-60px;right:-50px;opacity:.07"><svg viewBox="0 0 120 120" fill="none" stroke="#6B7A5E" stroke-width="1.3" stroke-linecap="round"><circle cx="60" cy="60" r="19"/><line x1="60" y1="13" x2="60" y2="30"/><line x1="60" y1="90" x2="60" y2="107"/><line x1="13" y1="60" x2="30" y2="60"/><line x1="90" y1="60" x2="107" y2="60"/><line x1="26" y1="26" x2="38" y2="38"/><line x1="82" y1="82" x2="94" y2="94"/><line x1="94" y1="26" x2="82" y2="38"/><line x1="38" y1="82" x2="26" y2="94"/><line x1="42" y1="17" x2="47" y2="32"/><line x1="73" y1="88" x2="78" y2="103"/><line x1="17" y1="42" x2="32" y2="47"/><line x1="88" y1="73" x2="103" y2="78"/></svg></div>
+    <div class="icon-deco deco-float2" style="width:190px;height:190px;bottom:16%;left:5%;opacity:.05"><svg viewBox="0 0 120 120" fill="none" stroke="#6B7A5E" stroke-width="1.3" stroke-linecap="round"><circle cx="60" cy="60" r="19"/><line x1="60" y1="13" x2="60" y2="30"/><line x1="60" y1="90" x2="60" y2="107"/><line x1="13" y1="60" x2="30" y2="60"/><line x1="90" y1="60" x2="107" y2="60"/><line x1="26" y1="26" x2="38" y2="38"/><line x1="82" y1="82" x2="94" y2="94"/><line x1="94" y1="26" x2="82" y2="38"/><line x1="38" y1="82" x2="26" y2="94"/></svg></div>
+    <div class="icon-deco deco-breathe" style="width:82px;height:82px;left:4%;top:50%;opacity:.13"><svg viewBox="0 0 100 100" fill="none" stroke="#6B7A5E" stroke-width="1.3"><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="7"/></svg></div>
+    <div class="hero-eyebrow" dir="ltr" style="font-size: 40px; font-family: &quot;Cormorant Garamond&quot;; line-height: 1.55; letter-spacing: .06em">Move your body,<br><span style="font-family: &quot;Dancing Script&quot;; font-size: 50px; letter-spacing: 0; vertical-align: -.04em">Free</span> your mind</div>
+    <p style="font-family: Heebo">יוגה, מדיטציה ופילאטיס movement studio in Tel Aviv</p>
     <div class="hero-cues">
       <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%A0%D7%99%D7%A1%D7%99%D7%95%D7%9F" target="_blank" class="pill">לשיעור ניסיון</a>
       <a href="#philo" class="pill ghost">גלי עוד</a>
@@ -300,50 +341,45 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
     <div class="scrollcue"><span>גללי</span><div class="ln"></div></div>
   </section>
 
-  <div class="sec-wave" aria-hidden="true"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" fill="none"><path d="M0 40 C180 10 360 65 540 38 C720 12 900 62 1080 38 C1260 14 1380 52 1440 38" stroke="rgba(168,158,133,.3)" stroke-width="1" vector-effect="non-scaling-stroke"/><path d="M0 52 C240 22 420 72 660 50 C900 26 1140 68 1440 50" stroke="rgba(168,158,133,.15)" stroke-width="1" vector-effect="non-scaling-stroke"/></svg></div>
-
   <!-- philosophy -->
-  <section id="philo"><div class="bg-illo" aria-hidden="true"><svg viewBox="0 0 1200 900" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><path d="M-80 450 C200 180 500 700 820 430 C1000 300 1100 520 1300 400" stroke="#A89E85" stroke-width="1.5" opacity=".18"/><path d="M0 650 C300 400 620 780 950 560 C1080 480 1160 600 1220 540" stroke="#A89E85" stroke-width="1" opacity=".12"/><circle cx="980" cy="160" r="180" stroke="#6B7A5E" stroke-width="1" opacity=".07"/><path d="M600 50 C650 20 700 80 750 50 C800 20 850 70 900 50" stroke="#6B7A5E" stroke-width="1.2" opacity=".1" stroke-linecap="round"/></svg></div><div class="wrap" style="position:relative;z-index:1">
+  <section id="philo"><div class="wavetop" aria-hidden="true" style="height:clamp(96px,13vw,180px)"><svg viewBox="0 0 1440 160" preserveAspectRatio="none"><path d="M0,160 L1440,160 L1440,86 C1210,152 1030,14 720,56 C430,95 250,150 0,70 Z" fill="rgba(239,234,224,.6)"/></svg></div><div class="icon-deco deco-float" style="width:300px;height:300px;top:3%;left:1%;opacity:.06"><svg viewBox="0 0 120 120" fill="none" stroke="#6B7A5E" stroke-width="1.3" stroke-linecap="round"><circle cx="60" cy="60" r="19"/><line x1="60" y1="13" x2="60" y2="30"/><line x1="60" y1="90" x2="60" y2="107"/><line x1="13" y1="60" x2="30" y2="60"/><line x1="90" y1="60" x2="107" y2="60"/><line x1="26" y1="26" x2="38" y2="38"/><line x1="82" y1="82" x2="94" y2="94"/><line x1="94" y1="26" x2="82" y2="38"/><line x1="38" y1="82" x2="26" y2="94"/></svg></div><div class="icon-deco deco-fade" style="width:66px;height:66px;top:34%;left:-10px;--op:.16"><svg viewBox="0 0 100 100" fill="none" stroke="#6B7A5E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M50 92 L50 40"/><path d="M50 58 C36 54 26 42 27 26 C44 25 53 38 52 52"/><path d="M50 48 C64 44 74 32 73 16 C56 15 47 28 48 42"/></svg></div><div class="icon-deco deco-fade" style="width:50px;height:50px;bottom:12%;right:18%;--op:.13"><svg viewBox="0 0 100 100" fill="none" stroke="#6B7A5E" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M50 92 L50 40"/><path d="M50 58 C36 54 26 42 27 26 C44 25 53 38 52 52"/><path d="M50 48 C64 44 74 32 73 16 C56 15 47 28 48 42"/></svg></div><div class="blob" aria-hidden="true" style="width:300px;height:300px;background:#D6C2A5;opacity:.22;top:6%;right:-70px"></div><div class="blob" aria-hidden="true" style="width:150px;height:150px;border:1px solid rgba(107,122,94,.35);top:62%;left:4%"></div><div class="bg-illo" aria-hidden="true"><svg viewBox="0 0 1200 900" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><path d="M-80 450 C200 180 500 700 820 430 C1000 300 1100 520 1300 400" stroke="#A89E85" stroke-width="1.5" opacity=".18"/><path d="M0 650 C300 400 620 780 950 560 C1080 480 1160 600 1220 540" stroke="#A89E85" stroke-width="1" opacity=".12"/><circle cx="980" cy="160" r="180" stroke="#6B7A5E" stroke-width="1" opacity=".07"/><path d="M600 50 C650 20 700 80 750 50 C800 20 850 70 900 50" stroke="#6B7A5E" stroke-width="1.2" opacity=".1" stroke-linecap="round"/></svg></div><div class="wrap" style="position:relative;z-index:1">
     <div class="philo-grid">
       <div class="philo-text reveal">
-        <span class="eyebrow">היי, אני טליה</span>
-        <h2 class="h2">הים לימד אותי<br>מה זה <em>שקט אמיתי</em></h2>
-        <p class="lead">גדלתי ליד המים. מאז שאני זוכרת את עצמי, הים הוא המקום שאני הולכת אליו כשאני צריכה לנשום.</p>
-        <p style="color:var(--muted);line-height:1.9;margin-bottom:1.2rem">לפני עשר שנים גיליתי את היוגה — ואיתה, דרך לקחת את אותו שקט פנימה. כיום אני מלמדת יוגה ופילאטיס בתל אביב, ברגע הכי יפה של היום: השקיעה. כי כשהשמיים מתחילים להשתנות — הגוף נזכר להרפות.</p>
-        <p style="color:var(--muted);line-height:1.9">השיעורים שלי הם מרחב לאנשים שרוצים להאט — לנשום לעומק, להרגיש את הגוף מבפנים, ולצאת מלאות יותר ממה שנכנסו.</p>
+        <span class="eyebrow">אודות</span>
+        <h2 class="h2" style="font-size:clamp(2.4rem,4.6vw,3.6rem);margin-bottom:.5rem">היי, אני <em>טליה</em></h2>
+        <p class="lat-accent" style="font-size:1.2rem;margin-bottom:1.9rem">מדריכת יוגה ופילאטיס</p>
+        <p style="color:var(--muted);line-height:1.9;margin-bottom:1.2rem">אני מאמינה שתנועה מודעת יכולה לשנות את הדרך שבה אנחנו מרגישים, נושמים וחיים. 
+דרך התרגול, מול הים או על הגג, אני מזמינה אותך להאט,
+להתחזק ולהתחבר פנימה.</p>
+        <p style="color:var(--muted);line-height:1.9">בעיניי - תנועה מרפאת.</p>
       </div>
-      <div class="philo-img reveal">
-        <div class="main"><img src="assets/ip1.jpeg" alt="טליה בתרגול יוגה בשקיעה"></div>
-        <div class="side"><img src="assets/ip2.jpeg" alt="טליה בתנועה"></div>
+      <div class="philo-img reveal"><div class="icon-deco deco-breathe" style="width:70px;height:70px;top:-24px;left:-24px;opacity:.16;z-index:2"><svg viewBox="0 0 100 100" fill="none" stroke="#6B7A5E" stroke-width="1.3"><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="7"/></svg></div>
+        <div class="main"><img src="assets/yoga5.jpeg" alt="טליה בתרגול יוגה" data-comment-anchor="6ba2064446-img"></div>
       </div>
     </div>
   </div></section>
 
-  <div class="sec-wave" aria-hidden="true"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" fill="none"><path d="M0 35 C300 60 600 10 900 35 C1100 52 1280 20 1440 35" stroke="rgba(168,158,133,.25)" stroke-width="1" vector-effect="non-scaling-stroke"/></svg></div>
-
   <!-- editorial collage -->
-  <section id="editorial"><div class="wrap">
+  <section id="editorial"><div class="wavetop" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,80 L1440,80 L1440,36 C1180,8 980,76 660,40 C380,9 240,70 0,30 Z" fill="rgba(231,222,205,.58)"/></svg></div><div class="icon-deco" data-par="0.07" style="width:58%;height:120px;top:9%;left:8%;opacity:.11"><svg viewBox="0 0 200 70" fill="none" stroke="#A7C7D9" stroke-width="1.4" stroke-linecap="round"><path d="M6 18 C28 4 42 32 64 18 C86 4 100 32 122 18 C144 4 158 32 180 18 C188 13 192 13 196 16"/><path d="M6 38 C28 24 42 52 64 38 C86 24 100 52 122 38 C144 24 158 52 180 38 C188 33 192 33 196 36"/><path d="M6 58 C28 44 42 72 64 58 C86 44 100 72 122 58 C144 44 158 72 180 58 C188 53 192 53 196 56"/></svg></div><div class="wrap">
     <div class="collage reveal">
       <figure class="c1"><img src="assets/bgs.jpeg" alt="שיעור על הגג בשקיעה"></figure>
       <figure class="c2"><img src="assets/ip2.jpeg" alt="תרגול קבוצתי"></figure>
       <figure class="c3"><img src="assets/bgd.jpeg" alt="יוגה מול הים"></figure>
       <figure class="c4"><img src="assets/bgn.jpeg" alt="מדיטציה בלילה על הגג"></figure>
-      <figure class="c5"><img src="assets/ip1.jpeg" alt="עמידת ראש בשקיעה"></figure>
-      <div class="quote"><p>“הים ברקע,<br>הגוף נמס.”</p></div>
+      <figure class="c5"><img src="assets/yoga5.jpeg" alt="עמידת ראש"></figure>
+      <figure class="c6"><img src="assets/yoga7.jpeg" alt="תרגול יוגה מול הים"></figure>
     </div>
   </div></section>
 
-  <div class="sec-wave" aria-hidden="true"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" fill="none"><path d="M0 28 C200 55 440 8 720 32 C980 54 1220 8 1440 30" stroke="rgba(168,158,133,.22)" stroke-width="1" vector-effect="non-scaling-stroke"/><path d="M0 44 C160 68 400 20 640 44 C880 68 1160 22 1440 44" stroke="rgba(168,158,133,.12)" stroke-width="1" vector-effect="non-scaling-stroke"/></svg></div>
-
   <!-- classes -->
-  <section id="classes"><div class="bg-illo" aria-hidden="true"><svg viewBox="0 0 1200 800" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><path d="M100 400 C350 150 650 600 950 350 C1080 260 1150 400 1200 340" stroke="#6B7A5E" stroke-width="1.5" opacity=".14"/><path d="M0 600 C250 380 550 700 850 500 C1000 410 1120 540 1200 480" stroke="#A89E85" stroke-width="1" opacity=".1"/><path d="M300 80 C420 30 540 130 660 80 C780 30 900 110 1020 70" stroke="#A89E85" stroke-width="1.2" opacity=".12" stroke-linecap="round"/></svg></div><div class="wrap" style="position:relative;z-index:1">
+  <section id="classes"><div class="wavetop" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,80 L1440,80 L1440,40 C1150,6 1020,72 700,38 C420,9 260,66 0,34 Z" fill="rgba(247,246,242,.5)"/></svg></div><div class="icon-deco deco-float" style="width:280px;height:280px;top:3%;left:50%;margin-left:-140px;opacity:.06"><svg viewBox="0 0 120 120" fill="none" stroke="#6B7A5E" stroke-width="1.3" stroke-linecap="round"><circle cx="60" cy="60" r="19"/><line x1="60" y1="13" x2="60" y2="30"/><line x1="60" y1="90" x2="60" y2="107"/><line x1="13" y1="60" x2="30" y2="60"/><line x1="90" y1="60" x2="107" y2="60"/><line x1="26" y1="26" x2="38" y2="38"/><line x1="82" y1="82" x2="94" y2="94"/><line x1="94" y1="26" x2="82" y2="38"/><line x1="38" y1="82" x2="26" y2="94"/><line x1="42" y1="17" x2="47" y2="32"/><line x1="73" y1="88" x2="78" y2="103"/><line x1="17" y1="42" x2="32" y2="47"/><line x1="88" y1="73" x2="103" y2="78"/></svg></div><div class="blob" aria-hidden="true" style="width:240px;height:240px;background:#E7DECD;opacity:.4;top:10%;left:-60px"></div><div class="bg-illo" aria-hidden="true"><svg viewBox="0 0 1200 800" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><path d="M100 400 C350 150 650 600 950 350 C1080 260 1150 400 1200 340" stroke="#6B7A5E" stroke-width="1.5" opacity=".14"/><path d="M0 600 C250 380 550 700 850 500 C1000 410 1120 540 1200 480" stroke="#A89E85" stroke-width="1" opacity=".1"/><path d="M300 80 C420 30 540 130 660 80 C780 30 900 110 1020 70" stroke="#A89E85" stroke-width="1.2" opacity=".12" stroke-linecap="round"/></svg></div><div class="wrap" style="position:relative;z-index:1">
     <div class="cls-head reveal">
       <span class="eyebrow">השיעורים</span>
       <h2 class="h2">בחרי את <em>התרגול</em> שלך</h2>
     </div>
     <div class="cls-grid">
       <div class="cls reveal">
-        <svg class="ic" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="13" r="4"/><line x1="12" y1="3" x2="12" y2="6"/><line x1="5" y1="6" x2="7" y2="8"/><line x1="19" y1="6" x2="17" y2="8"/><line x1="3" y1="14" x2="6" y2="14"/><line x1="18" y1="14" x2="21" y2="14"/></svg>
+        <div class="cls-arch"><img src="assets/ip1.jpeg" alt="Yoga Flow"></div>
         <h3>Yoga Flow</h3>
         <div class="en">flow & breath</div>
         <p>חיבור זורם בין נשימה לתנועה, מול האוויר הפתוח של העיר.</p>
@@ -351,7 +387,7 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
         <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%99%D7%A8%D7%A9%D7%9D%20%D7%9CYoga%20Flow" target="_blank" class="link">להרשמה ←</a>
       </div>
       <div class="cls reveal">
-        <svg class="ic" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg>
+        <div class="cls-arch"><img src="assets/ip2.jpeg" alt="Pilates"></div>
         <h3>Pilates</h3>
         <div class="en">core & control</div>
         <p>עבודה מדויקת על ליבה, כוח פנימי והארכת הגוף — באווירה אישית.</p>
@@ -359,7 +395,7 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
         <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%99%D7%A8%D7%A9%D7%9D%20%D7%9CPilates" target="_blank" class="link">להרשמה ←</a>
       </div>
       <div class="cls reveal">
-        <svg class="ic" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M3 16 Q7 12 11 16 T19 16"/><circle cx="12" cy="9" r="3.4"/></svg>
+        <div class="cls-arch"><img src="assets/bgs.jpeg" alt="Sunset Yoga"></div>
         <h3>Sunset Yoga</h3>
         <div class="en">sea & sunset</div>
         <p>תרגול מרגיע מול שקיעות חוף הים — בשילוב מוזיקה סוחפת.</p>
@@ -369,10 +405,8 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
     </div>
   </div></section>
 
-  <div class="sec-wave" aria-hidden="true"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" fill="none"><path d="M0 45 C360 15 720 60 1080 35 C1240 22 1360 48 1440 38" stroke="rgba(168,158,133,.2)" stroke-width="1" vector-effect="non-scaling-stroke"/></svg></div>
-
   <!-- schedule -->
-  <section id="schedule"><div class="wrap">
+  <section id="schedule"><div class="wavetop" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,80 L1440,80 L1440,34 C1160,72 1000,4 680,38 C400,66 240,8 0,40 Z" fill="rgba(239,234,224,.94)"/></svg></div><div class="icon-deco" data-par="0.06" style="width:46%;height:110px;top:7%;right:5%;opacity:.1"><svg viewBox="0 0 200 70" fill="none" stroke="#A7C7D9" stroke-width="1.4" stroke-linecap="round"><path d="M6 18 C28 4 42 32 64 18 C86 4 100 32 122 18 C144 4 158 32 180 18 C188 13 192 13 196 16"/><path d="M6 38 C28 24 42 52 64 38 C86 24 100 52 122 38 C144 24 158 52 180 38 C188 33 192 33 196 36"/><path d="M6 58 C28 44 42 72 64 58 C86 44 100 72 122 58 C144 44 158 72 180 58 C188 53 192 53 196 56"/></svg></div><div class="icon-deco deco-breathe" style="width:64px;height:64px;bottom:11%;left:7%;opacity:.12"><svg viewBox="0 0 100 100" fill="none" stroke="#6B7A5E" stroke-width="1.3"><circle cx="50" cy="50" r="40"/><circle cx="50" cy="50" r="7"/></svg></div><div class="blob" aria-hidden="true" style="width:180px;height:180px;border:1px solid rgba(168,158,133,.4);top:14%;right:6%"></div><div class="wrap" style="position:relative;z-index:1">
     <div class="sched-grid">
       <div class="sched-aside reveal">
         <span class="eyebrow">לוח שבועי</span>
@@ -393,25 +427,8 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
     </div>
   </div></section>
 
-  <!-- gallery -->
-  <section id="gallery"><div class="wrap">
-    <div class="gal-head reveal">
-      <h2 class="h2">האווירה <em>שלנו</em></h2>
-      <a href="https://instagram.com/talyavaxbaum" target="_blank" class="insta">@talyavaxbaum
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17" cy="7" r="1" fill="currentColor" stroke="none"/></svg>
-      </a>
-    </div>
-    <div class="gal-track reveal">
-      <figure><img src="assets/bgd.jpeg" alt="יוגה מול הים" loading="lazy"></figure>
-      <figure><img src="assets/bgs.jpeg" alt="שיעור על הגג בשקיעה" loading="lazy"></figure>
-      <figure><img src="assets/ip1.jpeg" alt="עמידת ראש" loading="lazy"></figure>
-      <figure><img src="assets/bgn.jpeg" alt="מדיטציה בלילה" loading="lazy"></figure>
-      <figure><img src="assets/ip2.jpeg" alt="תרגול קבוצתי" loading="lazy"></figure>
-    </div>
-  </div></section>
-
   <!-- contact -->
-  <section id="contact">
+  <section id="contact"><div class="wavetop" aria-hidden="true"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><path d="M0,80 L1440,80 L1440,40 C1150,6 1020,72 700,38 C420,9 260,66 0,34 Z" fill="rgba(231,222,205,.6)"/></svg></div><div class="icon-deco deco-float2" style="width:150px;height:150px;top:13%;left:6%;opacity:.15"><svg viewBox="0 0 100 100" fill="none" stroke="#F7F6F2" stroke-width="1.3" stroke-linecap="round"><path d="M66 22 A32 32 0 1 0 66 78 A26 26 0 1 1 66 22 Z"/><circle cx="78" cy="30" r="1.6" fill="#F7F6F2" stroke="none"/><circle cx="84" cy="44" r="1.2" fill="#F7F6F2" stroke="none"/><circle cx="74" cy="20" r="1" fill="#F7F6F2" stroke="none"/></svg></div><div class="icon-deco deco-float" style="width:240px;height:240px;top:-30px;right:-20px;opacity:.06"><svg viewBox="0 0 120 120" fill="none" stroke="#F7F6F2" stroke-width="1.3" stroke-linecap="round"><circle cx="60" cy="60" r="19"/><line x1="60" y1="13" x2="60" y2="30"/><line x1="60" y1="90" x2="60" y2="107"/><line x1="13" y1="60" x2="30" y2="60"/><line x1="90" y1="60" x2="107" y2="60"/><line x1="26" y1="26" x2="38" y2="38"/><line x1="82" y1="82" x2="94" y2="94"/><line x1="94" y1="26" x2="82" y2="38"/><line x1="38" y1="82" x2="26" y2="94"/></svg></div>
     <div class="contact-img"><img src="assets/bgn.jpeg" alt="מדיטציה על הגג בלילה"></div>
     <div class="wrap reveal">
       <span class="eyebrow">ניפגש על המזרן</span>
@@ -430,6 +447,7 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
   </section>
 
   <footer>
+    <div class="icon-deco deco-float2" style="width:96px;height:96px;top:22%;left:7%;opacity:.1"><svg viewBox="0 0 100 100" fill="none" stroke="#F7F6F2" stroke-width="1.3" stroke-linecap="round"><path d="M66 22 A32 32 0 1 0 66 78 A26 26 0 1 1 66 22 Z"/><circle cx="78" cy="30" r="1.6" fill="#F7F6F2" stroke="none"/><circle cx="84" cy="44" r="1.2" fill="#F7F6F2" stroke="none"/><circle cx="74" cy="20" r="1" fill="#F7F6F2" stroke="none"/></svg></div>
     <div class="wrap">
       <div class="foot">
         <div class="brand">
@@ -488,12 +506,26 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
   var io=new IntersectionObserver(function(es){
     es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
   },{threshold:0.16});
-  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  document.querySelectorAll('.reveal, .deco-fade').forEach(function(el){io.observe(el);});
 
   // mobile menu
   var burger=document.getElementById('burger'),mob=document.getElementById('mobnav');
   burger.addEventListener('click',function(){mob.classList.toggle('open');});
   mob.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mob.classList.remove('open');});});
+
+  // gentle parallax for brand wave decorations
+  var pars=[].slice.call(document.querySelectorAll('[data-par]'));
+  function parallax(){
+    for(var i=0;i<pars.length;i++){
+      var el=pars[i], f=parseFloat(el.getAttribute('data-par'))||0;
+      var r=el.getBoundingClientRect();
+      var off=(r.top + r.height/2) - (window.innerHeight/2);
+      el.style.transform='translateY('+(-off*f).toFixed(1)+'px)';
+    }
+  }
+  window.addEventListener('scroll',parallax,{passive:true});
+  window.addEventListener('resize',parallax);
+  parallax();
 })();
 </script>
 
