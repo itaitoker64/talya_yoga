@@ -93,7 +93,7 @@ nav.solid{background:rgba(247,246,242,.78);backdrop-filter:blur(18px);padding:.9
 .hero-img::after{content:'';position:absolute;inset:0;background:linear-gradient(270deg,rgba(247,246,242,.93) 0%,rgba(247,246,242,.6) 42%,rgba(247,246,242,.18) 100%)}
 .hero-img img{width:100%;height:100%;object-fit:cover;object-position:center 60%}
 .hero-eyebrow{font-family:var(--script);font-size:clamp(1.7rem,3.4vw,2.6rem);color:var(--sage);line-height:1;margin-bottom:.6rem}
-.hero h1{font-family:var(--serifHe);font-weight:300;font-size:clamp(3.2rem,9vw,7.5rem);line-height:.98;color:var(--charcoal);letter-spacing:-.01em;margin-bottom:1.6rem}
+.hero h1{font-family:'Cormorant Garamond','Frank Ruhl Libre',serif;font-weight:300;font-size:clamp(5rem,14vw,11rem);line-height:.88;color:var(--charcoal);letter-spacing:.02em;margin-bottom:2.8rem}
 .hero h1 em{font-style:normal;color:var(--sage)}
 .hero p{font-family:var(--serifLat);font-size:clamp(1.15rem,2.2vw,1.6rem);color:var(--ink);font-weight:400;max-width:30ch;margin-bottom:2.6rem;line-height:1.5}
 .hero p .lat{font-style:italic;color:var(--taupe);display:block;font-size:.84em;letter-spacing:.04em;margin-top:.3rem}
@@ -110,8 +110,8 @@ nav.solid{background:rgba(247,246,242,.78);backdrop-filter:blur(18px);padding:.9
 
 /* ============ section atoms ============ */
 .eyebrow{font-family:var(--serifLat);font-size:.72rem;letter-spacing:.34em;text-transform:uppercase;color:var(--sage);display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1.4rem}
-.eyebrow::before{content:'';width:32px;height:1px;background:var(--sage);opacity:.6}
-.h2{font-family:var(--serifHe);font-weight:300;font-size:clamp(2.4rem,5.2vw,4.2rem);line-height:1.05;color:var(--charcoal);letter-spacing:-.01em}
+.eyebrow::before{content:'';display:inline-block;width:44px;height:12px;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 44 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2 6 C7 2 12 10 19 6 C26 2 32 10 38 6 C40 5 42 5 43 6' stroke='%236B7A5E' stroke-width='1.4' stroke-linecap='round' opacity='.6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-size:contain;background-position:center}
+.h2{font-family:'Cormorant Garamond','Frank Ruhl Libre',serif;font-weight:300;font-size:clamp(3.4rem,7.5vw,6rem);line-height:.98;color:var(--charcoal);letter-spacing:.03em}
 .h2 em{font-style:normal;color:var(--sage)}
 .lat-accent{font-family:var(--serifLat);font-style:italic;color:var(--taupe)}
 .lead{font-size:1.05rem;color:var(--ink);font-weight:300;max-width:46ch;line-height:1.95}
@@ -119,11 +119,11 @@ nav.solid{background:rgba(247,246,242,.78);backdrop-filter:blur(18px);padding:.9
 .reveal.in{opacity:1;transform:none}
 
 /* ============ philosophy ============ */
-#philo{padding:clamp(6rem,13vw,11rem) 0}
+#philo{padding:clamp(10rem,18vw,16rem) 0}
 .philo-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2rem,6vw,6rem);align-items:center}
 .philo-text .h2{margin-bottom:1.8rem}
 .philo-img{position:relative}
-.philo-img .main{border-radius:200px 200px 18px 18px;overflow:hidden;aspect-ratio:3/4.05;box-shadow:0 40px 80px -40px rgba(58,58,51,.4)}
+.philo-img .main{border-radius:360px 360px 10px 10px;overflow:hidden;aspect-ratio:3/5.4;box-shadow:0 80px 140px -80px rgba(58,58,51,.35)}
 .philo-img .main img{width:100%;height:100%;object-fit:cover}
 .philo-img .side{position:absolute;bottom:-30px;left:-40px;width:55%;aspect-ratio:1/1.1;border-radius:18px;overflow:hidden;box-shadow:0 20px 50px -20px rgba(58,58,51,.35);border:4px solid var(--warm)}
 .philo-img .side img{width:100%;height:100%;object-fit:cover}
@@ -135,9 +135,9 @@ nav.solid{background:rgba(247,246,242,.78);backdrop-filter:blur(18px);padding:.9
 @media(max-width:860px){.philo-grid{grid-template-columns:1fr;gap:4rem}.philo-img .main{max-width:420px;margin:0 auto}.philo-img .side{left:-20px;bottom:-20px;width:48%}}
 
 /* ============ editorial collage ============ */
-#editorial{padding:clamp(4rem,10vw,9rem) 0}
-.collage{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:7vw;gap:clamp(.8rem,1.8vw,1.6rem)}
-.collage figure{overflow:hidden;border-radius:16px;position:relative}
+#editorial{padding:clamp(7rem,14vw,13rem) 0}
+.collage{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:10vw;gap:clamp(.4rem,.8vw,.8rem)}
+.collage figure{overflow:hidden;border-radius:2px;position:relative}
 .collage img{width:100%;height:100%;object-fit:cover;transition:transform 1.4s ease}
 .collage figure:hover img{transform:scale(1.06)}
 .c1{grid-column:1/6;grid-row:1/5}
@@ -155,16 +155,16 @@ nav.solid{background:rgba(247,246,242,.78);backdrop-filter:blur(18px);padding:.9
 }
 
 /* ============ classes ============ */
-#classes{padding:clamp(6rem,12vw,10rem) 0}
+#classes{padding:clamp(10rem,16vw,15rem) 0}
 .cls-head{text-align:center;margin-bottom:clamp(3rem,6vw,5rem);display:flex;flex-direction:column;align-items:center}
 .cls-head .eyebrow::after{content:'';width:32px;height:1px;background:var(--sage);opacity:.6}
 .cls-head .eyebrow{gap:.7rem}
-.cls-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1rem,2.5vw,2rem)}
-.cls{background:rgba(255,255,255,.5);border:1px solid rgba(168,158,133,.28);border-radius:22px;padding:2.6rem 2.2rem;
-  display:flex;flex-direction:column;transition:all .5s;backdrop-filter:blur(6px)}
-.cls:hover{background:#fff;transform:translateY(-6px);box-shadow:0 36px 60px -38px rgba(58,58,51,.4);border-color:rgba(107,122,94,.4)}
+.cls-grid{display:grid;grid-template-columns:repeat(3,1fr);column-gap:clamp(2.5rem,6vw,6rem);row-gap:0}
+.cls{background:transparent;border:none;border-top:1px solid rgba(168,158,133,.22);border-radius:0;padding:3.8rem 0;
+  display:flex;flex-direction:column;transition:border-color .4s}
+.cls:hover{background:transparent;transform:none;box-shadow:none;border-color:var(--sage)}
 .cls .ic{color:var(--sage);margin-bottom:1.4rem}
-.cls h3{font-family:var(--serifHe);font-weight:400;font-size:1.7rem;color:var(--charcoal);margin-bottom:.2rem}
+.cls h3{font-family:'Cormorant Garamond','Frank Ruhl Libre',serif;font-weight:300;font-size:3rem;color:var(--charcoal);margin-bottom:.5rem;line-height:1.0}
 .cls .en{font-family:var(--serifLat);font-style:italic;font-size:.92rem;color:var(--taupe);margin-bottom:1rem;letter-spacing:.03em}
 .cls p{font-size:.92rem;color:var(--ink);line-height:1.8;margin-bottom:1.6rem;flex:1}
 .cls .meta{display:flex;gap:1.2rem;font-size:.74rem;color:var(--muted);letter-spacing:.04em;margin-bottom:1.6rem;flex-wrap:wrap}
@@ -175,14 +175,14 @@ nav.solid{background:rgba(247,246,242,.78);backdrop-filter:blur(18px);padding:.9
 @media(max-width:860px){.cls-grid{grid-template-columns:1fr;max-width:440px;margin:0 auto}}
 
 /* ============ schedule ============ */
-#schedule{padding:clamp(5rem,11vw,9rem) 0}
+#schedule{padding:clamp(8rem,14vw,13rem) 0}
 .sched-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(2rem,6vw,5.5rem);align-items:center}
 .sched-list{display:flex;flex-direction:column}
 .srow{display:grid;grid-template-columns:auto 1fr auto auto;gap:1.4rem;align-items:center;padding:1.5rem 0;border-top:1px solid rgba(168,158,133,.3);transition:padding .3s}
 .srow:hover{padding-inline:.6rem}
 .srow:last-child{border-bottom:1px solid rgba(168,158,133,.3)}
 .srow .day{font-family:var(--serifHe);font-size:1.05rem;color:var(--sage);font-weight:500;min-width:3.4rem}
-.srow .info b{font-family:var(--serifHe);font-weight:400;font-size:1.18rem;color:var(--charcoal);display:block;line-height:1.2}
+.srow .info b{font-family:'Cormorant Garamond','Frank Ruhl Libre',serif;font-weight:300;font-size:1.5rem;color:var(--charcoal);display:block;line-height:1.2}
 .srow .info span{font-size:.78rem;color:var(--muted);letter-spacing:.03em}
 .srow .time{font-family:var(--serifLat);font-size:1.35rem;color:var(--taupe);font-style:italic}
 .srow .book{opacity:1;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);border:1px solid rgba(107,122,94,.4);padding:.5rem 1rem;border-radius:50px;transition:all .35s;white-space:nowrap}
@@ -191,12 +191,12 @@ nav.solid{background:rgba(247,246,242,.78);backdrop-filter:blur(18px);padding:.9
 @media(max-width:860px){.sched-grid{grid-template-columns:1fr;gap:3rem}.srow .book{opacity:1}}
 
 /* ============ gallery strip ============ */
-#gallery{padding:clamp(3rem,7vw,6rem) 0 clamp(5rem,10vw,8rem)}
+#gallery{padding:clamp(5rem,10vw,9rem) 0 clamp(8rem,15vw,13rem)}
 .gal-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2.4rem;flex-wrap:wrap;gap:1rem}
 .gal-head .insta{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sage);display:inline-flex;gap:.5rem;align-items:center}
 .gal-track{display:flex;gap:1.1rem;overflow-x:auto;padding-bottom:1rem;scroll-snap-type:x mandatory;-ms-overflow-style:none;scrollbar-width:none}
 .gal-track::-webkit-scrollbar{display:none}
-.gal-track figure{flex:none;width:clamp(220px,26vw,330px);aspect-ratio:4/5;border-radius:16px;overflow:hidden;scroll-snap-align:start}
+.gal-track figure{flex:none;width:clamp(300px,36vw,460px);aspect-ratio:2/3;border-radius:4px;overflow:hidden;scroll-snap-align:start}
 .gal-track img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
 .gal-track figure:hover img{transform:scale(1.05)}
 
@@ -208,7 +208,7 @@ nav.solid{background:rgba(247,246,242,.78);backdrop-filter:blur(18px);padding:.9
 #contact .wrap{color:var(--warm);max-width:1180px}
 #contact .eyebrow{color:var(--sand)}
 #contact .eyebrow::before{background:var(--sand)}
-#contact h2{font-family:var(--serifHe);font-weight:300;font-size:clamp(2.8rem,7vw,5.5rem);line-height:1.02;margin-bottom:1.4rem;color:#fff}
+#contact h2{font-family:'Cormorant Garamond','Frank Ruhl Libre',serif;font-weight:300;font-size:clamp(3.8rem,10vw,8rem);line-height:.92;margin-bottom:2rem;color:#fff}
 #contact h2 em{font-style:normal;color:var(--sand)}
 #contact .sub{font-family:var(--serifLat);font-size:clamp(1.1rem,2.2vw,1.5rem);color:rgba(255,255,255,.85);font-style:italic;max-width:34ch;margin-bottom:2.6rem}
 .contact-row{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:3rem}
@@ -233,6 +233,18 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
   display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px -8px rgba(58,58,51,.5);transition:transform .3s}
 #wa:hover{transform:scale(1.08)}
 #wa svg{width:26px;height:26px;fill:var(--warm)}
+/* ============ wave section dividers ============ */
+.sec-wave{position:relative;z-index:2;pointer-events:none;height:70px;overflow:visible;line-height:0;margin-top:-1px}
+.sec-wave svg{display:block;width:100%;height:100%}
+@keyframes wavedrift{0%,100%{transform:translateX(0)}50%{transform:translateX(-2%)}}
+.sec-wave svg{animation:wavedrift 26s ease-in-out infinite}
+
+/* ============ organic background illustrations ============ */
+.bg-illo{position:absolute;inset:0;pointer-events:none;z-index:-1;overflow:hidden}
+.bg-illo svg{width:100%;height:100%;opacity:1}
+
+/* ============ editorial classes ============ */
+.cls-link-row{display:flex;align-items:center;gap:1.2rem;margin-top:auto}
 </style>
 </head>
 <body>
@@ -300,8 +312,10 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
     <div class="scrollcue"><span>גללי</span><div class="ln"></div></div>
   </section>
 
+  <div class="sec-wave" aria-hidden="true"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" fill="none"><path d="M0 40 C180 10 360 65 540 38 C720 12 900 62 1080 38 C1260 14 1380 52 1440 38" stroke="rgba(168,158,133,.3)" stroke-width="1" vector-effect="non-scaling-stroke"/><path d="M0 52 C240 22 420 72 660 50 C900 26 1140 68 1440 50" stroke="rgba(168,158,133,.15)" stroke-width="1" vector-effect="non-scaling-stroke"/></svg></div>
+
   <!-- philosophy -->
-  <section id="philo"><div class="wrap">
+  <section id="philo"><div class="bg-illo" aria-hidden="true"><svg viewBox="0 0 1200 900" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><path d="M-80 450 C200 180 500 700 820 430 C1000 300 1100 520 1300 400" stroke="#A89E85" stroke-width="1.5" opacity=".18"/><path d="M0 650 C300 400 620 780 950 560 C1080 480 1160 600 1220 540" stroke="#A89E85" stroke-width="1" opacity=".12"/><circle cx="980" cy="160" r="180" stroke="#6B7A5E" stroke-width="1" opacity=".07"/><path d="M600 50 C650 20 700 80 750 50 C800 20 850 70 900 50" stroke="#6B7A5E" stroke-width="1.2" opacity=".1" stroke-linecap="round"/></svg></div><div class="wrap" style="position:relative;z-index:1">
     <div class="philo-grid">
       <div class="philo-text reveal">
         <span class="eyebrow">היי, אני טליה</span>
@@ -317,6 +331,8 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
     </div>
   </div></section>
 
+  <div class="sec-wave" aria-hidden="true"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" fill="none"><path d="M0 35 C300 60 600 10 900 35 C1100 52 1280 20 1440 35" stroke="rgba(168,158,133,.25)" stroke-width="1" vector-effect="non-scaling-stroke"/></svg></div>
+
   <!-- editorial collage -->
   <section id="editorial"><div class="wrap">
     <div class="collage reveal">
@@ -329,8 +345,10 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
     </div>
   </div></section>
 
+  <div class="sec-wave" aria-hidden="true"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" fill="none"><path d="M0 28 C200 55 440 8 720 32 C980 54 1220 8 1440 30" stroke="rgba(168,158,133,.22)" stroke-width="1" vector-effect="non-scaling-stroke"/><path d="M0 44 C160 68 400 20 640 44 C880 68 1160 22 1440 44" stroke="rgba(168,158,133,.12)" stroke-width="1" vector-effect="non-scaling-stroke"/></svg></div>
+
   <!-- classes -->
-  <section id="classes"><div class="wrap">
+  <section id="classes"><div class="bg-illo" aria-hidden="true"><svg viewBox="0 0 1200 800" fill="none" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg"><path d="M100 400 C350 150 650 600 950 350 C1080 260 1150 400 1200 340" stroke="#6B7A5E" stroke-width="1.5" opacity=".14"/><path d="M0 600 C250 380 550 700 850 500 C1000 410 1120 540 1200 480" stroke="#A89E85" stroke-width="1" opacity=".1"/><path d="M300 80 C420 30 540 130 660 80 C780 30 900 110 1020 70" stroke="#A89E85" stroke-width="1.2" opacity=".12" stroke-linecap="round"/></svg></div><div class="wrap" style="position:relative;z-index:1">
     <div class="cls-head reveal">
       <span class="eyebrow">השיעורים</span>
       <h2 class="h2">בחרי את <em>התרגול</em> שלך</h2>
@@ -362,6 +380,8 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
       </div>
     </div>
   </div></section>
+
+  <div class="sec-wave" aria-hidden="true"><svg viewBox="0 0 1440 70" preserveAspectRatio="none" fill="none"><path d="M0 45 C360 15 720 60 1080 35 C1240 22 1360 48 1440 38" stroke="rgba(168,158,133,.2)" stroke-width="1" vector-effect="non-scaling-stroke"/></svg></div>
 
   <!-- schedule -->
   <section id="schedule"><div class="wrap">
