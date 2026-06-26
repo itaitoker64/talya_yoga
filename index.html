@@ -630,17 +630,14 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
 <script>
 /* ===========================================================================
    SIGNUP → GOOGLE SHEET
-   Bookings are written straight into your Google Sheet (tab "הרשמות").
-   ONE-TIME SETUP (see chat for full steps):
-     1. In your Sheet: Extensions → Apps Script, paste the doPost script.
-     2. Deploy → New deployment → Web app → Execute as: me, Access: Anyone.
-     3. Copy the /exec URL and paste it between the quotes below.
-   Until a URL is set, the form falls back to WhatsApp so nothing breaks.
+   Bookings are sent to the serverless endpoint /api/signup, which writes a row
+   into the Google Sheet using a service account (credentials live only in
+   Vercel env vars — never in this page). See api/signup.js for setup.
+   If the endpoint isn't configured yet or errors, the form falls back to
+   WhatsApp so booking never breaks.
 =========================================================================== */
 (function(){
-  // ====== EDIT ONLY THIS LINE ======
-  var SIGNUP_URL = ""; // <-- paste the Apps Script Web App /exec URL here
-  // =================================
+  var SIGNUP_URL = "/api/signup";
   var WA_NUMBER = "972524119411";
 
   var modal = document.getElementById('signup-modal');
@@ -701,10 +698,11 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
     }
     if(!SIGNUP_URL){ window.open(waText(current),'_blank'); finish(); return; }
     fetch(SIGNUP_URL, {
-      method:'POST', mode:'no-cors',
-      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
       body: JSON.stringify(payload)
-    }).then(finish).catch(function(){ window.open(waText(current),'_blank'); finish(); });
+    }).then(function(r){ if(!r.ok) throw new Error('bad status'); return finish(); })
+      .catch(function(){ window.open(waText(current),'_blank'); finish(); });
   });
 })();
 </script>
