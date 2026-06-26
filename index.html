@@ -274,6 +274,28 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
 .deco-fade.in{opacity:var(--op,.12);transform:none}
 #hero>.hero-eyebrow,#hero>p,#hero>.hero-cues,#hero>.scrollcue{position:relative;z-index:2}
 #editorial .wrap,#contact .wrap,footer .wrap{position:relative;z-index:1}
+
+/* ============ signup modal ============ */
+.su-modal{position:fixed;inset:0;z-index:90;display:flex;align-items:center;justify-content:center;padding:1.4rem;opacity:0;pointer-events:none;transition:opacity .4s}
+.su-modal.open{opacity:1;pointer-events:auto}
+.su-backdrop{position:absolute;inset:0;background:rgba(58,58,51,.55);backdrop-filter:blur(6px)}
+.su-card{position:relative;width:100%;max-width:440px;background:var(--warm);border-radius:24px;padding:clamp(2rem,5vw,3rem);box-shadow:0 50px 100px -40px rgba(58,58,51,.5);transform:translateY(22px);transition:transform .45s cubic-bezier(.2,.7,.2,1);max-height:92vh;overflow-y:auto}
+.su-modal.open .su-card{transform:none}
+.su-x{position:absolute;top:.9rem;left:1.2rem;font-size:1.9rem;line-height:1;color:var(--muted);transition:color .3s}
+.su-x:hover{color:var(--charcoal)}
+.su-card .eyebrow{margin-bottom:.6rem}
+.su-h{font-family:'Cormorant Garamond','Frank Ruhl Libre',serif;font-weight:300;font-size:2.6rem;color:var(--charcoal);line-height:1;margin:.1rem 0 .4rem}
+.su-ctx{font-family:var(--serifLat);font-style:italic;color:var(--sage);font-size:1.1rem;margin-bottom:1.7rem;min-height:1.2em}
+#su-form{display:flex;flex-direction:column;gap:1.05rem}
+#su-form label{display:flex;flex-direction:column;gap:.4rem;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+#su-form input,#su-form textarea{font-family:var(--body);font-size:1rem;color:var(--ink);background:#fff;border:1px solid rgba(168,158,133,.4);border-radius:12px;padding:.85rem 1rem;transition:border-color .3s;resize:vertical}
+#su-form input:focus,#su-form textarea:focus{outline:none;border-color:var(--sage)}
+.su-submit{justify-content:center;margin-top:.5rem;width:100%}
+.su-wa{display:block;text-align:center;margin-top:1.1rem;font-size:.82rem;letter-spacing:.04em;color:var(--sage);transition:color .3s}
+.su-wa:hover{color:var(--sagedeep)}
+.su-done{display:none;text-align:center;padding:1rem 0}
+.su-done p{color:var(--muted);margin:.7rem 0 1.7rem;line-height:1.75}
+.su-done .su-h{margin-bottom:0}
 </style>
 <link id="gfont-Dancing-Script" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@300;400;500;600;700&amp;display=swap">
 <link id="gfont-Dosis" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@300;400;500;600;700&amp;display=swap">
@@ -335,7 +357,7 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
     <div class="hero-eyebrow" dir="ltr" style="font-size: 40px; font-family: &quot;Cormorant Garamond&quot;; line-height: 1.55; letter-spacing: .06em">Move your body,<br><span style="font-family: &quot;Dancing Script&quot;; font-size: 50px; letter-spacing: 0; vertical-align: -.04em">Free</span> your mind</div>
     <p style="font-family: Heebo">יוגה, מדיטציה ופילאטיס movement studio in Tel Aviv</p>
     <div class="hero-cues">
-      <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%A0%D7%99%D7%A1%D7%99%D7%95%D7%9F" target="_blank" class="pill">לשיעור ניסיון</a>
+      <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D%20%D7%A2%D7%9C%20%D7%A9%D7%99%D7%A2%D7%95%D7%A8%20%D7%A0%D7%99%D7%A1%D7%99%D7%95%D7%9F" target="_blank" class="pill" data-signup data-cls="שיעור ניסיון">לשיעור ניסיון</a>
       <a href="#philo" class="pill ghost">גלי עוד</a>
     </div>
     <div class="scrollcue"><span>גללי</span><div class="ln"></div></div>
@@ -384,7 +406,7 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
         <div class="en">flow & breath</div>
         <p>חיבור זורם בין נשימה לתנועה, מול האוויר הפתוח של העיר.</p>
         <div class="meta"><span>60 דק׳</span><span>עד 8</span><span>כל הרמות</span></div>
-        <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%99%D7%A8%D7%A9%D7%9D%20%D7%9CYoga%20Flow" target="_blank" class="link">להרשמה ←</a>
+        <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%99%D7%A8%D7%A9%D7%9D%20%D7%9CYoga%20Flow" target="_blank" class="link" data-signup data-cls="Yoga Flow">להרשמה ←</a>
       </div>
       <div class="cls reveal">
         <div class="cls-arch"><img src="assets/ip2.jpeg" alt="Pilates"></div>
@@ -392,7 +414,7 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
         <div class="en">core & control</div>
         <p>עבודה מדויקת על ליבה, כוח פנימי והארכת הגוף — באווירה אישית.</p>
         <div class="meta"><span>55 דק׳</span><span>עד 6</span><span>מתחילות+</span></div>
-        <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%99%D7%A8%D7%A9%D7%9D%20%D7%9CPilates" target="_blank" class="link">להרשמה ←</a>
+        <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%99%D7%A8%D7%A9%D7%9D%20%D7%9CPilates" target="_blank" class="link" data-signup data-cls="Pilates">להרשמה ←</a>
       </div>
       <div class="cls reveal">
         <div class="cls-arch"><img src="assets/bgs.jpeg" alt="Sunset Yoga"></div>
@@ -400,7 +422,7 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
         <div class="en">sea & sunset</div>
         <p>תרגול מרגיע מול שקיעות חוף הים — בשילוב מוזיקה סוחפת.</p>
         <div class="meta"><span>75 דק׳</span><span>עד 12</span><span>חמישי 19:00</span></div>
-        <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%99%D7%A8%D7%A9%D7%9D%20%D7%9CSunset%20Yoga" target="_blank" class="link">להרשמה ←</a>
+        <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%99%D7%A8%D7%A9%D7%9D%20%D7%9CSunset%20Yoga" target="_blank" class="link" data-signup data-cls="Sunset Yoga">להרשמה ←</a>
       </div>
     </div>
   </div></section>
@@ -412,7 +434,7 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
         <span class="eyebrow">לוח שבועי</span>
         <h2 class="h2">שבוע <em>בתנועה</em></h2>
         <p class="lead">קבוצות קטנות ואינטימיות. שריון מקום בהודעה אחת בוואטסאפ.</p>
-        <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%A8%D7%99%D7%99%D7%9F%20%D7%9E%D7%A7%D7%95%D7%9D" target="_blank" class="pill" style="margin-top:2rem">שריון מקום</a>
+        <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%A8%D7%99%D7%99%D7%9F%20%D7%9E%D7%A7%D7%95%D7%9D" target="_blank" class="pill" data-signup style="margin-top:2rem">שריון מקום</a>
       </div>
       <div class="sched-list reveal">
         <a class="srow" href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%94%D7%99%D7%A8%D7%A9%D7%9D%20%D7%9CYoga%20Flow%20%D7%A9%D7%A0%D7%99%2008%3A30" target="_blank">
@@ -435,7 +457,7 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
       <h2>מוכנה<br><em>להתחיל?</em></h2>
       <p class="sub">הצטרפי לשיעור הבא — אישור ופרטים ישירות בוואטסאפ.</p>
       <div class="contact-row">
-        <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D" target="_blank" class="pill light">הרשמה בוואטסאפ</a>
+        <a href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D" target="_blank" class="pill light" data-signup>להרשמה לשיעור</a>
         <a href="https://chat.whatsapp.com/GxIgolHeu8A7jr9eDs1eXX?mode=gi_t" target="_blank" class="pill outline">לקהילה שלנו</a>
       </div>
       <div class="contact-meta">
@@ -467,6 +489,29 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
     </div>
   </footer>
 
+</div>
+
+<!-- signup modal -->
+<div id="signup-modal" class="su-modal" aria-hidden="true">
+  <div class="su-backdrop" data-su-close></div>
+  <div class="su-card" role="dialog" aria-modal="true" aria-labelledby="su-title">
+    <button class="su-x" data-su-close aria-label="סגירה">&times;</button>
+    <span class="eyebrow">הרשמה לשיעור</span>
+    <h3 id="su-title" class="su-h">שריון מקום</h3>
+    <p class="su-ctx" id="su-ctx"></p>
+    <form id="su-form" novalidate>
+      <label>שם מלא<input type="text" name="name" required autocomplete="name"></label>
+      <label>טלפון<input type="tel" name="phone" required autocomplete="tel" inputmode="tel"></label>
+      <label>הערה (לא חובה)<textarea name="note" rows="2" placeholder="פעם ראשונה? משהו שכדאי לדעת?"></textarea></label>
+      <button type="submit" class="pill su-submit">שליחת הרשמה</button>
+    </form>
+    <a class="su-wa" id="su-wa" href="#" target="_blank">או שלחי הודעה בוואטסאפ →</a>
+    <div class="su-done" id="su-done">
+      <h3 class="su-h">נרשמת! 🌿</h3>
+      <p>נתראה על המזרן.<br>נחזור אלייך בהקדם לאישור הפרטים.</p>
+      <button class="pill ghost" data-su-close>סגירה</button>
+    </div>
+  </div>
 </div>
 
 <a id="wa" href="https://wa.me/972524119411?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A4%D7%A8%D7%98%D7%99%D7%9D" target="_blank" aria-label="WhatsApp">
@@ -573,13 +618,94 @@ footer{background:var(--charcoal);color:rgba(247,246,242,.7);padding:3.5rem 0 2.
     }).filter(function(x){ return x.day||x.cls||x.time; });
 
     listEl.innerHTML = data.length ? data.map(function(x){
-      return '<a class="srow" href="'+waLink(x.cls,x.day,x.time)+'" target="_blank">'+
+      return '<a class="srow" data-signup data-cls="'+esc(x.cls)+'" data-day="'+esc(x.day)+'" data-time="'+esc(x.time)+'" href="'+waLink(x.cls,x.day,x.time)+'" target="_blank">'+
         '<span class="day">'+esc(x.day)+'</span>'+
         '<span class="info"><b>'+esc(x.cls)+'</b><span>'+esc(x.loc)+'</span></span>'+
         '<span class="time">'+esc(x.time)+'</span>'+
         '<span class="book">שריון ←</span></a>';
     }).join('') : '<p style="color:var(--muted);padding:1.6rem 0;font-size:1rem">אין שיעורים מתוכננים כרגע 🌿</p>';
   }).catch(function(){ /* any error -> keep the built-in lessons already on the page */ });
+})();
+</script>
+<script>
+/* ===========================================================================
+   SIGNUP → GOOGLE SHEET
+   Bookings are written straight into your Google Sheet (tab "הרשמות").
+   ONE-TIME SETUP (see chat for full steps):
+     1. In your Sheet: Extensions → Apps Script, paste the doPost script.
+     2. Deploy → New deployment → Web app → Execute as: me, Access: Anyone.
+     3. Copy the /exec URL and paste it between the quotes below.
+   Until a URL is set, the form falls back to WhatsApp so nothing breaks.
+=========================================================================== */
+(function(){
+  // ====== EDIT ONLY THIS LINE ======
+  var SIGNUP_URL = ""; // <-- paste the Apps Script Web App /exec URL here
+  // =================================
+  var WA_NUMBER = "972524119411";
+
+  var modal = document.getElementById('signup-modal');
+  var form  = document.getElementById('su-form');
+  var ctxEl = document.getElementById('su-ctx');
+  var waEl  = document.getElementById('su-wa');
+  var doneEl= document.getElementById('su-done');
+  if(!modal||!form) return;
+  var current = {};
+
+  function waText(d){
+    return "https://wa.me/"+WA_NUMBER+"?text="+encodeURIComponent(
+      "היי, אשמח להירשם ל"+[d.cls,d.day,d.time].filter(Boolean).join(" "));
+  }
+  function txt(el){ return el? (el.textContent||"").trim() : ""; }
+
+  function openModal(d){
+    current = d;
+    ctxEl.textContent = [d.cls,d.day,d.time].filter(Boolean).join(" · ") || "שריון מקום בשיעור הקרוב";
+    waEl.href = waText(d);
+    form.reset(); form.style.display=''; doneEl.style.display='none';
+    modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    var f=form.querySelector('input'); if(f) setTimeout(function(){f.focus();},250);
+  }
+  function closeModal(){
+    modal.classList.remove('open'); modal.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+
+  document.addEventListener('click', function(e){
+    if(e.target.closest('[data-su-close]')){ closeModal(); return; }
+    var t = e.target.closest('.srow, [data-signup]');
+    if(t){
+      e.preventDefault();
+      openModal({
+        cls:  t.getAttribute('data-cls')  || txt(t.querySelector('.info b')),
+        day:  t.getAttribute('data-day')  || txt(t.querySelector('.day')),
+        time: t.getAttribute('data-time') || txt(t.querySelector('.time'))
+      });
+    }
+  });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeModal(); });
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name=form.name.value.trim(), phone=form.phone.value.trim();
+    if(!name||!phone){
+      (!name?form.name:form.phone).focus(); return;
+    }
+    var payload = { name:name, phone:phone, note:form.note.value.trim(),
+                    cls:current.cls||'', day:current.day||'', time:current.time||'' };
+    var btn = form.querySelector('.su-submit');
+    btn.textContent='שולח…'; btn.style.opacity='.7'; btn.disabled=true;
+    function finish(){
+      form.style.display='none'; doneEl.style.display='block';
+      btn.textContent='שליחת הרשמה'; btn.style.opacity=''; btn.disabled=false;
+    }
+    if(!SIGNUP_URL){ window.open(waText(current),'_blank'); finish(); return; }
+    fetch(SIGNUP_URL, {
+      method:'POST', mode:'no-cors',
+      headers:{'Content-Type':'text/plain;charset=utf-8'},
+      body: JSON.stringify(payload)
+    }).then(finish).catch(function(){ window.open(waText(current),'_blank'); finish(); });
+  });
 })();
 </script>
 </body></html>
