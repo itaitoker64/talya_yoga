@@ -1,13 +1,16 @@
-// Serverless endpoint: appends a booking to a Google Sheet via the Sheets API.
-// Zero npm dependencies — uses only Node built-ins (crypto + global fetch).
+// Serverless endpoint: appends a booking to the "students-template" Google
+// Sheet via the Sheets API. Zero npm dependencies — uses only Node built-ins.
 //
 // Required Vercel environment variables (Project → Settings → Environment Variables):
 //   GOOGLE_SA_EMAIL        service account email  (xxx@yyy.iam.gserviceaccount.com)
 //   GOOGLE_SA_PRIVATE_KEY  the service account private key (full PEM, BEGIN…END)
-//   SHEET_ID               the spreadsheet id from the sheet URL .../d/<ID>/edit
-//   SHEET_TAB              (optional) tab name to write to, defaults to "Signups"
+// Optional overrides (sensible defaults below, so usually NOT needed):
+//   SHEET_ID               spreadsheet id (defaults to the students-template sheet)
+//   SHEET_TAB              tab name (defaults to "students-template")
 //
-// The Sheet must be shared with GOOGLE_SA_EMAIL as an Editor.
+// The target Sheet must be shared with GOOGLE_SA_EMAIL as an Editor.
+// Rows are written to match the sheet's columns:
+//   שם | טלפון | שיעור | סטטוס | מחיר שיעור | תשלום | הערות
 
 const crypto = require('crypto');
 
@@ -72,9 +75,9 @@ module.exports = async (req, res) => {
 
     const email = process.env.GOOGLE_SA_EMAIL;
     const key = (process.env.GOOGLE_SA_PRIVATE_KEY || '').replace(/\\n/g, '\n');
-    const sheetId = process.env.SHEET_ID;
-    const tab = process.env.SHEET_TAB || 'Signups';
-    if (!email || !key || !sheetId) {
+    const sheetId = process.env.SHEET_ID || '1ZqBgxij66HCO0NF7HpMrShEwrGT12Buxgz75herYAj8';
+    const tab = process.env.SHEET_TAB || 'students-template';
+    if (!email || !key) {
       res.status(500).json({ error: 'server not configured' });
       return;
     }
@@ -84,8 +87,13 @@ module.exports = async (req, res) => {
     const range = encodeURIComponent(tab) + '!A1';
     const url = 'https://sheets.googleapis.com/v4/spreadsheets/' + sheetId +
       '/values/' + range + ':append?valueInputOption=USER_ENTERED&insertDataOption=INSERT_ROWS';
-    const ts = new Date().toISOString().replace('T', ' ').slice(0, 19);
-    const row = [ts, name, phone, cls, day, time, note];
+    // Match the students-template columns:
+    //   שם | טלפון | שיעור | סטטוס | מחיר שיעור | תשלום | הערות
+    const lesson = [cls, day, time].filter(Boolean).join(' · ');
+    const now = new Date();
+    const dateStr = now.getDate() + '.' + (now.getMonth() + 1);
+    const remark = (note ? note + ' · ' : '') + 'הרשמה מהאתר ' + dateStr;
+    const row = [name, phone, lesson, 'חדש (אתר)', '', '', remark];
 
     const r = await fetch(url, {
       method: 'POST',
